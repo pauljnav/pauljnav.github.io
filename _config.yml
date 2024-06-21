@@ -2,11 +2,11 @@ theme: "minima"
 
 title: "My Blogs Name"
 author: "Paul Naughton"
-description: "A personal blog, mostly covering PowerShell related themes." # This will show up in places like twitter, linkedin, etc, if you share your sites url as a post.
+description: "A personal blog, mostly covering PowerShell related themes."
 
 # Email / Social media user names used by the minima theme:
 github_username: "pauljnav"
-email: "example@mail.com"
+email: "tecknikp@gmail.com"
 twitter_username: "twitteruser"
 linkedin_username: "linkedinuser"
 #facebook_username: username
@@ -25,7 +25,7 @@ linkedin_username: "linkedinuser"
 kramdown:
   syntax_highlighter_opts:
     disable: true
-    
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
