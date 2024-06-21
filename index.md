@@ -1,5 +1,3 @@
-Here you can say lots of fun things about your site.
+Many thanks to chadbaldwin.net for the blog bootstrap @ https://chadbaldwin.net/2021/03/14/how-to-build-a-sql-blog.html
 
-Maybe say a some things about yourself.
-
-Or maybe what you plan to blog about.
+I plan to blog about PowerShell, code snippets and other useful code that helps me automate all the things.
