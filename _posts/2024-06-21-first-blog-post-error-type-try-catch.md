@@ -27,7 +27,7 @@ The code in the catch block shows various ways to inspect the error. You see mor
 
 `$error[0]` an automatic variable. For more details, check the [about_automatic_variables documentation](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables)
 
-####top tip
+#### Top tip
 I show you `$error[0].Exception.GetType().FullName`.
 
 The `Get-Command not_a_command` that I use above generates an `ErrorRecord`, because the term 'not_a_command' is not recognized as the name of a cmdlet, function, or operable program.
