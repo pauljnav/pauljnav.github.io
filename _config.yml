@@ -1,6 +1,6 @@
 theme: "minima"
 
-title: "My Blogs Name"
+title: "Paul Naughton's Blog"
 author: "Paul Naughton"
 description: "A personal blog, mostly covering PowerShell related themes."
 
@@ -37,6 +37,8 @@ titles_from_headings:
 header_pages:
   - archive.md
   - bookmarks.md
+  - acknowledgements.md
+  - _references\references.md
 
 defaults:
   - scope:
