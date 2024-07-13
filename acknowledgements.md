@@ -11,4 +11,4 @@
 
 ### GitHub Pages
 
-- Chad Baldwin for his [GitHub Pages guide](chadbaldwin.net/2021/03/14/how-to-build-a-sql-blog.html)
+- Chad Baldwin for his [GitHub Pages guide](https://chadbaldwin.net/2021/03/14/how-to-build-a-sql-blog.html)

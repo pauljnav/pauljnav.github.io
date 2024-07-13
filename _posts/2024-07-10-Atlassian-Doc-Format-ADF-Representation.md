@@ -40,7 +40,7 @@ Convert a text string to an Atlassian Document Format (ADF) JSON representation.
 
 .DESCRIPTION
 This function takes a user-provided text string and converts it into a JSON representation
-following the Atlassian Document Format (ADF) structure.
+following the Atlassian Document Format (ADF) structure. Supports one string as its a simple function.
 
 .PARAMETER inputText
 The text string to be converted to ADF JSON format.
