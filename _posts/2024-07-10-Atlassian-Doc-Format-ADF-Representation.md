@@ -2,19 +2,17 @@
 
 ## Atlassian Document Format (ADF)
 
-JSON representation
-I work with Jira day to day and the company has migrated to the Atlassian cloud, my PowerShell day to day scripts need updating from their on-prem versions, and while working on that project, I found what was working ok for on-prem, was failing when I tried to create a new issue in the cloud.
-Turns out, the issue was my code not being aware of the Atlassian Document Format
+I work with Jira day to day and we have migrated Jira to the Atlassian cloud platform. While working on that, I discovered parts that worked for on-prem didnt work for cloud. One of those was the creation of a new jira issue using the `/issue` endpont, and it turns out that was failing was because my code was defined (by accident) with "latest" as the rest api version. And with api version 3 (the beta) being the latest, my niw issue request failed because it was not using the Atlassian Document Format (ADF) for certain text fields. I have adjusted my scripts to specify version 2, and I they dont need to use ADF, but ADF is the interesting topic for this blog.
 
-## Well what is it and what is is used for?
+## What is AFD and what is is used for?
 
 According to https://developer.atlassian.com/cloud/jira/platform/apis/document/structure/
-The Atlassian Document Format (ADF) represents rich text stored in Atlassian products.
-ADF is a JSON-based format for representing rich text documents in Atlassian applications.
-It allows for a structured representation of content, including text, paragraphs, lists,
-tables, and other rich text elements. The format is used by Atlassian products such as Jira
-and Confluence to store and render rich text content. The generated ADF JSON structure will include the version, document type, and content with
-a paragraph type containing the provided text.
+The Atlassian Document Format (ADF) represents rich text stored in Atlassian products. ADF is a JSON-based format for representing rich text documents in Atlassian applications.
+It allows for a structured representation of content, including text, paragraphs, lists, tables, and other rich text elements. The format is used by Atlassian products such as Jira
+and Confluence to store and render rich text content. The generated ADF JSON structure will include the version, document type, and content with a paragraph type containing the provided text.
+
+Version 3 of the Jira Cloud platform REST API provides support for the Atlassian Document Format (ADF), and version 3 is the latest version but is in beta. While version 2 is the released version, which is not supporting Atlassian Document Format.
+The example below was used with REST version 3 ("latest") successfully so maybe it can help you.
 
 ### For more information on ADF, see the Atlassian documentation:
 
@@ -26,8 +24,8 @@ https://developer.atlassian.com/cloud/jira/platform/apis/document/playground/
 
 ### Now for the goodies, a cmdlet you can all use. Hope you find it useful.
 
-Its as simple as they can be, you give the function some text, and it writes a json document back.
-Assign its output to a variable, and you can use that when you invoke a REST method to do its thing in your Jira clour instance.
+This function is as simple as a function can be. You provide the function with some text, and it outputs a json string back.
+Assign that string to a variable, and use that when you invoke the /issue REST method to do its thing in your Jira clour instance.
 I use it to create Jira from my outlook email, and that might a story for another day.
 
 Maybe my function should be named : `ConvertTo-AtlassianADF`
@@ -90,15 +88,11 @@ https://developer.atlassian.com/cloud/jira/platform/apis/document/playground/
 ```
 Convert a text string to an Atlassian Document Format (ADF) JSON representation.
 
-
     -------------------------- EXAMPLE 1 --------------------------
 
     PS C:\>The example converts the string "User entered text" to its corresponding ADF JSON representation
 
     Get-AtlassianADFjson -inputText "User entered text"
-
-
-
 
     -------------------------- EXAMPLE 2 --------------------------
 
