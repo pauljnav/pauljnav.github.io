@@ -1,4 +1,4 @@
-# Jira
+# Jira Issue and Atlassian Document Format
 
 ## Atlassian Document Format (ADF)
 
