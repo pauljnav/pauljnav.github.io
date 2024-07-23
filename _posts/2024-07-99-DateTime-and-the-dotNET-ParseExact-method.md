@@ -1,6 +1,6 @@
 # Processing DateTime using the .NET `ParseExact` Method
 
-As mentioned in my [ADF-Representation post](_posts\2024-07-10-Atlassian-Doc-Format-ADF-Representation.md), I work with Jira daily. In doing so, I often process emails to extract details for creating `New-Jira` issues.
+As mentioned in my [ADF-Representation post](._posts\2024-07-10-Atlassian-Doc-Format-ADF-Representation.md), I work with Jira daily. In doing so, I often process emails to extract details for creating `New-Jira` issues.
 
 Recently, I shared my `New-Jira` script with a colleague in the US, who encountered an error that I didn't have. Here's a review of the issue and the solution I found, which might be useful for you.
 
@@ -27,7 +27,7 @@ One of the properties of `$activityObject` is `"Created Date"`, with a value lik
 
 While this worked on my en-IE locale system, it failed on an en-US locale system at line #3. The `Get-Date $ddMMYYYYtime` command caused an error in the en-US locale system, so I went hunting for a solution. The solution found is the .NET `[DateTime]::ParseExact()` method.
 
-### The Solution
+### Now for the goodies, the solution. Hope you find it useful.
 
 ```powershell
 # Convert MMddYYYYtime to DateTime using [DateTime]::ParseExact method
