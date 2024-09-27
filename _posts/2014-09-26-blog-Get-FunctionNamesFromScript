@@ -1,0 +1,4 @@
+### PesterUtility
+PesterUtility is a module of mine containing utility functions that assist when Pester testing
+so far I have just the one module named `Get-FunctionNamesFromScript.ps1`
+
