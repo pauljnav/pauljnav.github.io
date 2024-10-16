@@ -1,0 +1,9 @@
+# PesterUtility
+PesterUtility is a module of mine containing utility functions that assist when Pester testing
+So far I have just the one function `Get-FunctionNamesFromScript.ps1` in the module.
+
+
+### Get-FunctionNamesFromScript.ps1 module
+Tthe module is defined with well documented help, and examples.
+Its purpose is to extaextract function and filter names from a PowerShell script/module. And I get to use it to verify and at times modify the `Export-ModuleMember` command is correct in my module definition.
+
