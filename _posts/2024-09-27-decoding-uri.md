@@ -5,7 +5,7 @@ The parts causing issue were the following:
 `&amp;rs%3AFormat=ATOM`
 `&amp;rc%3AItemPath=table`
 
-Varied methods exist, so here are the comparisons for each example
+Decoding or escaping with .NET methods was best option when I searched for options, and varied decoding/escaping methods exist in .NET, so here are the comparisons for eachL
 
 ```Powershell
 $string = '&amp;rs%3AFormat=ATOM&amp;rc%3AItemPath=table'
@@ -23,16 +23,16 @@ Decode `&amp;` to `&`
 Decode `rs%3A` to `rs:`
 
 ### Review
-The tests show that none of the methods decode all parts.
+The tests show that none of the methods decode all parts that we need.
 
-The first two using `UrlDecode()` methods behaved the same, both did not decode `&amp;` and they have decoded `:` correctly.
+The first two using `UrlDecode()` methods behaved the same, both do not decode `&amp;` and they have decoded `:` correctly.
 
-The third using `UnescapeDataString()` method also behaved the same, not not decoding `&amp;` and decoding `:` correctly.
+The third using `UnescapeDataString()` method also behaved the same, not decoding `&amp;` and decoding `:` correctly.
 
-The last two using `HtmlDecode()` methods switched the result around, as it decoded `&amp;` to `&`, and did not decode `%3A` to `:`
+The last two using `HtmlDecode()` methods flipped the result, as it decoded `&amp;` to `&`, and did not decode `%3A` to `:`.
 
 ### To conclude
-You need to combine `UrlDecode()` and `HtmlDecode()` methods, and here are some suggestions.
+We  need to combine `UrlDecode()` and `HtmlDecode()` methods. And here are some suggestions.
 
 #### Combine using a pipeline
 ```Powershell
@@ -49,7 +49,7 @@ $string = '&amp;rs%3AFormat=ATOM&amp;rc%3AItemPath=table'
 [System.Net.WebUtility]::HtmlDecode([System.Net.WebUtility]::UrlDecode($string))
 ```
 
-### Why System.Net.WebUtility and not System.Web.HttpUtility ?
+### But why System.Net.WebUtility and not System.Web.HttpUtility ?
 
 System.Net.WebUtility is recommended over System.Web.HttpUtility because System.Net.WebUtility is part of the runtime, while System.Web.HttpUtility requires the System.Web.HttpUtility.dll assembly.
 
@@ -62,8 +62,8 @@ System.Net.WebUtility is recommended over System.Web.HttpUtility because System.
 The PowerShell ISE has System.Web.HttpUtility as part of it's runtime, but it's more correct to align with Windows PowerShell or Windows PowerShell Core.
 
 ### References
-https://learn.microsoft.com/en-us/dotnet/api/system.net.webutility
+[https://learn.microsoft.com/en-us/dotnet/api/system.net.webutility](https://learn.microsoft.com/en-us/dotnet/api/system.net.webutility)
 
-https://learn.microsoft.com/en-us/dotnet/api/system.web.httputility
+[https://learn.microsoft.com/en-us/dotnet/api/system.web.httputility](https://learn.microsoft.com/en-us/dotnet/api/system.web.httputility)
 
-https://learn.microsoft.com/en-us/dotnet/api/system.uri
+[https://learn.microsoft.com/en-us/dotnet/api/system.uri](https://learn.microsoft.com/en-us/dotnet/api/system.uri)
