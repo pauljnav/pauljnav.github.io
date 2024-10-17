@@ -1,11 +1,11 @@
 # Decoding an encoded URI with .Net methods
 
-The other day while working with an SSRS server, I found that the 'Data feed' option was returning an encoded uri string that did not work when used as a uri in my browser.
+The other day while working with an SSRS server, I found that the 'Data feed' option was returning an encoded uri string that did not work when used in my browser.
 The parts causing issue were the following:
 `&amp;rs%3AFormat=ATOM`
 `&amp;rc%3AItemPath=table`
 
-Decoding or escaping with .NET methods was best option when I searched for options, and varied decoding/escaping methods exist in .NET, so here are the comparisons for eachL
+Decoding or escaping with .NET methods was the best option after searching for options, and a few decoding/escaping methods exist in .NET, so here are the comparisons for each:
 
 ```Powershell
 $string = '&amp;rs%3AFormat=ATOM&amp;rc%3AItemPath=table'
@@ -17,7 +17,7 @@ $string = '&amp;rs%3AFormat=ATOM&amp;rc%3AItemPath=table'
 ```
 
 ### Target behaviour
-#### Decoding the ':' character
+#### Decoding the '&' character
 Decode `&amp;` to `&`
 #### Decoding the ':' character
 Decode `rs%3A` to `rs:`
@@ -32,7 +32,7 @@ The third using `UnescapeDataString()` method also behaved the same, not decodin
 The last two using `HtmlDecode()` methods flipped the result, as it decoded `&amp;` to `&`, and did not decode `%3A` to `:`.
 
 ### To conclude
-We  need to combine `UrlDecode()` and `HtmlDecode()` methods. And here are some suggestions.
+I needed to combine `UrlDecode()` and `HtmlDecode()` methods, and here are some suggestions.
 
 #### Combine using a pipeline
 ```Powershell
