@@ -55,7 +55,7 @@ When you develop your own functions, you might be adding those options, so you w
 
 That is why my one-liner does not go to the same effort as that performed by the `Where-Object` example from `function Get-Color`.
 
-Lastly, you could include the TypeId in the statement, and both of these are equivalent, however the first is best.
+Lastly, you could include the `$_.TypeId` in the statement, sboth of these are equivalent, however the first is best.
 ```PowerShell
 $parameter.Attributes | Where-Object { $_ -is [System.Management.Automation.ValidateSetAttribute] }
 $parameter.Attributes | Where-Object { $_.TypeId -eq [System.Management.Automation.ValidateSetAttribute] }
