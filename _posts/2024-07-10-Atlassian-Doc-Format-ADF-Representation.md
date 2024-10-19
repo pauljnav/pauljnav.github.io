@@ -2,7 +2,7 @@
 
 ## Atlassian Document Format (ADF)
 
-I work with Jira day to day and we have migrated Jira to the Atlassian cloud platform. While working on that, I discovered parts that worked for on-prem didn't work for cloud. One of those was the creation of a new jira issue using the `/issue` endpont, and it turns out that was failing was because my code was defined (by accident) with "latest" as the rest api version. And with api version 3 (the beta) being the latest, my new issue request failed because it was not using the Atlassian Document Format (ADF) for certain text fields. I have adjusted my scripts to specify version 2, and I they don't need to use ADF, but ADF is the interesting topic for this blog.
+I work with Jira day to day and we have migrated Jira to the Atlassian cloud platform. While working on that, I discovered parts that worked for on-prem didn't work for cloud. One of those was the creation of a new jira issue using the `/issue` endpont, and it turns out that was failing was because my code was defined (by accident) with "latest" as the rest api version. And with api version 3 (the beta) being the latest, my new issue request failed because it was not using the Atlassian Document Format (ADF) for certain text fields. I have adjusted my scripts to specify version 2, and they don't need to use ADF, but ADF is the interesting topic for this blog.
 
 ## What is AFD and what is it used for?
 
