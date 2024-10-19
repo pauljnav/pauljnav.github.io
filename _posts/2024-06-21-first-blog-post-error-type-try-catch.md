@@ -1,4 +1,4 @@
-## How and why did I start a blog?
+## How and why did I start a blog? (plus error type in try-catch)
 
 Well, I'm heavily influenced by Doug Finke, Jeff Hicks, Mike F Robbins, Andrew Pla and many others, and those learned experts often mention that a personal blog is a great way to help you remember your own tips and tricks during your learning journey with anything that you learn. Just write a blog for yourself, so that is my inspiration.
 
