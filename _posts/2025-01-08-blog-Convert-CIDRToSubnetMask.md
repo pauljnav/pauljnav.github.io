@@ -1,13 +1,13 @@
 # Convert CIDR to subnet mask in PowerShell
 
 ### Happy New Year to all
-It's 2025, a year we used to associate with science fiction is now a reality, and "still no flying cars"!
+It's 2025, and a year we used to associate with science fiction has arrived, yet "still no flying cars"!
 
-It's the beginning of a new year, and I'm back at my usual daily stuff; building labs, virtual machines, creating, testing and solving Jira, etc. And today, I wanted to add a network adapter to a new VM and I asked myself "how would I define MAC address based off having the machines CIDR"?
+It's the beginning of a new year, and like most I'm back at my usual daily efforts; building labs, virtual machines, creating, testing and solving issues for customers, etc. And today, I wanted to add a network adapter to a new VM, and I asked myself "how would I define a MAC address based off a CIDR"?
 
-Well it got me thinking (and also chatting with my LLM) and in this post I'm sharing the end result. A function named `Convert-CIDRToSubnetMask`
+Well it got me thinking (and chatting with my LLM) and in this post I'm sharing the end result. A function named `Convert-CIDRToSubnetMask` and within it I try to explain the math and byte handling that is relevant for the overall mechanism. Refer to the wikipedia article for more information.
 
-I hope you find the goodies useful.
+Here are the goodies, I hope you find it useful.
 ```powershell
 function Convert-CIDRToSubnetMask
 {
@@ -35,7 +35,7 @@ function Convert-CIDRToSubnetMask
     Author: Paul Naughton
     Date: Jan 2025
 .LINK
-    start https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
+    https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 #>
 
     param (
@@ -55,7 +55,7 @@ function Convert-CIDRToSubnetMask
             2 ^ 24      = 16777216 = 00000001 00000000 00000000 00000000
             16777216 -1 = 16777215 = 00000000 11111111 11111111 11111111
         [uint32]()
-            Ensures the value is treated as a 32-bit unsigned integer.
+            Ensures the value is treated as a 32-bit unsigned integer. Otherwise its a double which is not ok for the operations that follow.
         -shl (32 - $CIDR)
             Left-shifts the 1s in the bitmask to the most significant bits, forming a valid subnet mask.
             32 - 24 = 8
