@@ -5,7 +5,7 @@ It's 2025, and a year we used to associate with science fiction has arrived, yet
 
 It's the beginning of a new year, and like most I'm back at my usual daily efforts; building labs, virtual machines, creating, testing and solving issues for customers, etc. And today, I wanted to add a network adapter to a new VM, and I asked myself "how would I define a MAC address based off a CIDR"?
 
-Well it got me thinking (and chatting with my LLM) and in this post I'm sharing the end result. A function named `Convert-CIDRToSubnetMask` and within it I try to explain the math and byte handling that is relevant for the overall mechanism. Refer to the wikipedia article for more information.
+Well it got me thinking (and chatting with my LLM) and in this post I'm sharing the end result. A function named `Convert-CIDRToSubnetMask` and within it I try to explain the math and byte handling that is relevant for the overall mechanism. Refer to the Wikipedia article for more information.
 
 Here are the goodies, I hope you find it useful.
 ```powershell
