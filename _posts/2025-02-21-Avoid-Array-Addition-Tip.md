@@ -1,8 +1,6 @@
-> :memo: **Note:** After reading the Tip, heres a measure
-
 # Avoid Array Addition - Tip
 I'm a fan of [PowerShell.tiPS](https://www.powershellgallery.com/packages/tiPS) by [Daniel Schroeder](https://blog.danskingdom.com/) (aka [deadlydog](https://github.com/deadlydog)), and the other day a really nice tip submitted by: [Santiago Squarzon](https://github.com/santisq) appeared in my [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview) console.
-The tip was so nice that I expanded the example and used [Measure-Command](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/measure-command) to test the benefit described by Santiago's tip.
+The tip was so sweet that I just had to go ahead and expand the example and then used [Measure-Command](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/measure-command) to test the benefit described by Santiago's tip.
 
 ## Firstly, the tip
 
@@ -32,16 +30,15 @@ foreach ($i in 0..10) {
 }
 ```
 More information:
-https://learn.microsoft.com/en-us/powershell/scripting/dev-cross-plat/performance/script-authoring-considerations?view=powershell-7.5&viewFallbackFrom=powershell-7.3#array-addition
+https://learn.microsoft.com/en-us/powershell/scripting/dev-cross-plat/performance/script-authoring-considerations#array-addition
 
 Tip submitted by: Santiago Squarzon ([santisq](https://github.com/santisq))
 
-
 ## Expanding the example with Measure-Command
-PowerShell is full of many great Commands Cmdlets and Modules, and one of my favourites is [Measure-Command](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/measure-command)
-`Measure-Command` makes it very easy to gauge the performance of your commands, and to test improvements. SO thats what dont here as the example, I've wrapped the tip with `Measure-Command` to reveal how much faster the code gets when following that great tip.
+PowerShell is full of many great Commands Cmdlets and Modules, and one of my favourites is [Measure-Command](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/measure-command).<br>
+`Measure-Command` makes it very easy to assess the performance of your commands, and to test improvements. And that's what I show in the example. I've wrapped the tip with `Measure-Command` to reveal how much faster the code gets when following that great tip.
 
-### The goodies
+### Hope you like the goodies
 
 ```powershell
 $upperBound = 10000
@@ -76,10 +73,8 @@ TotalMilliseconds
           11.2543 # List<T>
 
 ```
-
-_**Tip** there is a great variation of performance measurement at the **[What's New in PowerShell 7.5](https://learn.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-75)** document mentioned below._
-
-
 ## Performance improvements
-See [What's New in PowerShell 7.5](https://learn.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-75) for some relevant additional info on this topic as PowerShell 7.5-rc.1 included PR#[23901](https://github.com/PowerShell/PowerShell/pull/23901) from [jborean93](https://github.com/jborean93) that improves the performance of the += operation for an array of objects.
+See [What's New in PowerShell 7.5](https://learn.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-75) for some relevant additional info on this topic, where `PowerShell 7.5-rc.1` has included [PR#23901](https://github.com/PowerShell/PowerShell/pull/23901) from [@jborean93](https://github.com/jborean93) that improves the performance of the `+=` operation for an array of objects.
 
+
+_**Tip**: there is a great example of [performance improvements](https://learn.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-75#performance-improvements) measurement at the same [What's New in PowerShell 7.5](https://learn.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-75) link above._
