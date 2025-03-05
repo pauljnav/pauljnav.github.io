@@ -11,3 +11,5 @@ title: Blog Archive
     {% endfor %}
   </ul>
 {% endfor %}
+
+[![Hits](https://hits.sh/pauljnav.github.io.svg)](https://hits.sh/pauljnav.github.io/)
