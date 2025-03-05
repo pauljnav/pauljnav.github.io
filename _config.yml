@@ -45,5 +45,4 @@ defaults:
       path: ""
       type: post
     values:
-      tags: Articles
-      hits_logo: "https://hits.sh/pauljnav.github.io.svg"
+      tags: Other
