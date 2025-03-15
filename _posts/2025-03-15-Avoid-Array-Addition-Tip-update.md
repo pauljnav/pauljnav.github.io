@@ -1,11 +1,11 @@
 ## Avoid Array Addition - Tip updated
 
 Like many, I'm a fan of [PowerShell.tiPS](https://www.powershellgallery.com/packages/tiPS) by [Daniel Schroeder](https://blog.danskingdom.com/) (aka [@deadlydog](https://github.com/deadlydog)), and the other day a really nice tip submitted by: Santiago Squarzon [@santisq](https://github.com/santisq) appeared in my [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview) console.
-The tip was so sweet that I just had to go ahead and expand the example, and by using [Measure-Command](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/measure-command) was able to reveal the performance benefit described by Santiago's tip.
+The tip was so sweet that I just had to go ahead and expand the example.
+
+In PowerShell, array operations are common but can be slower than one would like, especially with large datasets. Updates in PowerShell 7.5 offers improvements in array addition, which enhance performance. This post explores these updates, comparing different methods, and provides a guide to make PowerShell scripts faster and more efficient based on Santiago's tip.
 
 ### PowerShell 7.5 Performance Improvement
-In PowerShell, array operations are common but can sometimes be slower than one would like, especially with large datasets. Updates in PowerShell 7.5 offers improvements in array addition, which can help enhance performance. This post explores these updates, comparing different methods, and provides a guide to make PowerShell scripts faster and more efficient based on Santiago's tip.
-
 `PowerShell 7.5-rc.1` has included [PR#23901](https://github.com/PowerShell/PowerShell/pull/23901) from [@jborean93](https://github.com/jborean93) that improves the performance of the `+=` operation for an array of objects. The improvement is so good, it negates the need for us powershellers to adjust our code when using the `+=` assignment operator.
 
 Read [What's New in PowerShell 7.5 #Engine Improvements](https://learn.microsoft.com/en-us/powershell/scripting/whats-new/what-s-new-in-powershell-75#engine-improvements) for more detail.
