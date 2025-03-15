@@ -1,4 +1,4 @@
-## Avoid Array Addition - Tip
+## Avoid Array Addition - Tip updated
 
 Like many, I'm a fan of [PowerShell.tiPS](https://www.powershellgallery.com/packages/tiPS) by [Daniel Schroeder](https://blog.danskingdom.com/) (aka [@deadlydog](https://github.com/deadlydog)), and the other day a really nice tip submitted by: Santiago Squarzon [@santisq](https://github.com/santisq) appeared in my [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview) console.
 The tip was so sweet that I just had to go ahead and expand the example, and by using [Measure-Command](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/measure-command) was able to reveal the performance benefit described by Santiago's tip.
