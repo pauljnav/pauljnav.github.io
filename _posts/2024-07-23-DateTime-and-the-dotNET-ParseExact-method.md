@@ -1,6 +1,7 @@
 # Processing DateTime using the .NET `ParseExact` Method
 
-As mentioned in the [ADF-Representation post](https://pauljnav.github.io/2024/07/10/Atlassian-Doc-Format-ADF-Representation.html), I work with Jira daily. In doing so, I often process emails to extract details for creating `New-Jira` issues.
+As mentioned in the
+[ADF-Representation Post]({% post_url 2024-07-10-Atlassian-Doc-Format-ADF-Representation %}), I work with Jira daily. In doing so, I often process emails to extract details for creating `New-Jira` issues.
 
 Recently, I shared my `New-Jira` script with a colleague in the US, who encountered an error that I didn't have. Here's a review of the issue and the solution I found, which might be useful for you.
 
