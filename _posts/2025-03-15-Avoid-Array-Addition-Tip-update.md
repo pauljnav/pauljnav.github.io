@@ -112,6 +112,6 @@ $values = $values+'E'`
 ```
 **That code even looks slow!**
 
-My thanks to the members of PowerShell community for feedback on [original post]([_posts\2025-02-21-Avoid-Array-Addition-Tip.md), especially [@JustinGrote](https://bsky.app/profile/posh.guru)
+My thanks to the members of PowerShell community for feedback on [original post]([..\..\..\2025\02\21\Avoid-Array-Addition-Tip.html), especially [@JustinGrote](https://bsky.app/profile/posh.guru)
 
 P.S. I had to learn a little more GitHub Actions for this blog update as I needed the runner to perform a PowerShell upgrade to 7.5.0 which required the action to setup-homebrew `uses: Homebrew/actions/setup-homebrew@master`. (Perhaps a post on that someday 😀😀😀 )
