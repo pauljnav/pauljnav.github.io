@@ -1,4 +1,5 @@
 ## Avoid Array Addition - Tip updated
+_An update on [the original post]({% post_url 2025-02-21-Avoid-Array-Addition-Tip %})_
 
 Like many, I'm a fan of [PowerShell.tiPS](https://www.powershellgallery.com/packages/tiPS) by [Daniel Schroeder](https://blog.danskingdom.com/) (aka [@deadlydog](https://github.com/deadlydog)), and the other day a really nice tip submitted by: Santiago Squarzon [@santisq](https://github.com/santisq) appeared in my [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview) console.
 The tip was so sweet that I just had to go ahead and expand the example.
@@ -111,7 +112,5 @@ $values = $values+'D'
 $values = $values+'E'`
 ```
 **That code even looks slow!**
-
-My thanks to the members of PowerShell community for feedback on [the original post]({% post_url 2025-02-21-Avoid-Array-Addition-Tip %}), especially [@JustinGrote](https://bsky.app/profile/posh.guru)
 
 P.S. I had to learn a little more GitHub Actions for this blog update as I needed the runner to perform a PowerShell upgrade to 7.5.0 which required the action to setup-homebrew `uses: Homebrew/actions/setup-homebrew@master`. (Perhaps a post on that someday 😀😀😀 )

@@ -1,4 +1,6 @@
 # Avoid Array Addition - Tip
+_This post is updated and replaced by [Avoid-Array-Addition-Tip-update]({% post_url 2025-03-15-Avoid-Array-Addition-Tip-update %})_
+
 Like many others, I'm a fan of [PowerShell.tiPS](https://www.powershellgallery.com/packages/tiPS) by [Daniel Schroeder](https://blog.danskingdom.com/) (aka [@deadlydog](https://github.com/deadlydog)), and the other day a really nice tip submitted by: [Santiago Squarzon](https://github.com/santisq) appeared in my [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview) console.
 The tip was so sweet that I just had to go ahead and expand the example and then used [Measure-Command](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/measure-command) to test the benefit described by Santiago's tip.
 
