@@ -1,6 +1,7 @@
 # A better and faster CIDR to subnet mask in PowerShell
 
 This long-overdue follow-up to the original post [Convert CIDR to Subnet Mask]({% post_url 2025-01-08-blog-Convert-CIDRToSubnetMask %}), comes with a familiar story.
+
 As coders, we often leave unfinished—rough scripts, quick hacks, or ideas left undone. Later, when we revisit our old work, we spot the rough edges and realise there's room for improvement. This post is part of that process: reflection, refinement, and sharing something better the second time around.
 
 This is one of those, born of a block of code that has been quietly nagging at me ever since I wrote it. Back in January, I needed to convert CIDR to subnet mask for scripting an Azure VM build, and I took the complex route. It was fun to dive into the math and explain how it all worked, but honestly? There was no need.
