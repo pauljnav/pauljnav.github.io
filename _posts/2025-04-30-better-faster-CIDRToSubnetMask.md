@@ -31,8 +31,6 @@ This filter is straightforward to follow. Here's how it works:
 4. **Conversion**: Each octet in binary, is converted into its decimal equivalent using the `[Convert]::ToByte()` method.
 5. **Output**: The decimal values are then joined together with a dot (`.`) to form the familiar dotted-decimal subnet mask format.
 
-
-
 ### Talk to the LLM
 I ask my friendly LLM to turn this into an improved function named "Convert-CIDRToSubnetMask"
 ```powershell
@@ -87,19 +85,19 @@ Describe "Convert-CIDRToSubnetMask Tests" {
     }
 }
 ```
-But aren't the values and their masks known to all, and its just a list of 32 specific options?
+But aren't the values and their masks known to all, it's just a list of 32 specific options after all.
 
-Before we move on, let's take a step back from testing, and ask; **Q:** Why write a function to calculate subnet mask values at all, when you could just return the correct value by directly matching the input?
+Before we tackle that idea, let's take a step back from testing, and ask; **Q:** Why write a function to calculate subnet mask values at all, when you could just return the correct value by directly matching the input?
 
-I've not found a good reason not to, so let's see how each option plays out. Perhaps the facts will decide?
+I've not found a good reason not to, so let's see how each option plays out. Perhaps facts will decide?
 
 ## Hard-Coding with Switch: A Better Approach?
 
-Should You Hard-Code the Subnet Masks?
+Should you hard-code the subnet masks?
 
 This hard-code approach defines every subnet mask option by matching the users input via a [Switch](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_switch) statement:
 ```powershell
-function Convert-CIDRToSubnetMask-Switch {
+function Convert-CIDRToSubnetMask_Switch {
     param (
         [Parameter(Mandatory,ValueFromPipeline)]
         [ValidateRange(0, 32)]
@@ -144,9 +142,9 @@ function Convert-CIDRToSubnetMask-Switch {
 }
 ```
 ## Hard-Coding with Hashtable
-Another hard-coded approach defines every subnet mask option by matching the users input via a [Hashtable](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_hash_tables):
+Another hard-coded approach defines every subnet mask option by matching the users input via [Hashtable](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_hash_tables):
 ```powershell
-function Convert-CIDRToSubnetMask-Hashtable {
+function Convert-CIDRToSubnetMask_Hashtable {
     param (
         [Parameter(Mandatory,ValueFromPipeline)]
         [ValidateRange(0, 32)]
@@ -193,9 +191,9 @@ function Convert-CIDRToSubnetMask-Hashtable {
 ```
 
 ## Not Hard-Coding - Bitwise calculation
-This is the version improved after consulting with my friendly LLM.
+This is the final version improved after consulting the LLM.
 ```powershell
-function Convert-CIDRToSubnetMask-Bitwise {
+function Convert-CIDRToSubnetMask_Bitwise {
     param (
         [Parameter(Mandatory,ValueFromPipeline)]
         [ValidateRange(0,32)]
@@ -207,42 +205,52 @@ function Convert-CIDRToSubnetMask-Bitwise {
 }
 ```
 ```powershell
-# note the last line was originally two lines; but let's avoid the variable assignment for better speed.
+# note: The final line was originally two lines; I avoid the variable assignment for better speed.
 # $subnetMask = ($octets | ForEach-Object { [convert]::ToInt32($_, 2) }) -join '.'
 # $subnetMask
 ```
-At this point we will assess the functions on their appearance.
+
+At this point were not yet ready for the testing, before we do that, let's assess the functions on structure.
 
 ## Pros of Hard-Coding with Switch
 ✅ Readability – The mapping is explicit, making it easy to understand. <br>
 ❌ More Code – Hardcoding makes the script longer. <br>
-✅ Cosmetics - although long, it looks good, with good structure.
+✅ Cosmetics – although long, it looks good, with good structure.
 ## Pros of Hard-Coding with Hashtable
 ✅ Readability – The mapping remains explicit, and is easy to understand. <br>
 ❌ More Code – Hardcoding makes the script longer. <br>
-✅ Cosmetics - similarly long, looks good, with good structure.
+✅ Cosmetics – similarly long, looks good, with good structure.
 ## Pros of Not Hard-Coding - Calculation
 ❌ Readability – The code is less easy for a beginner to understand when not explicitly mapped. <br>
 ✅ Less Code – who doesn't love a compact, sharp and neat function? <br>
-✅ Cosmetics - compact and looks good, and with good structure.
+✅ Cosmetics – compact and looks good, and with good structure.
 
 ## Performance Comparison: Hard-Coding vs. Calculation
-### Which Approach is Faster?
-The lookup method (switch or hash table) is free from complexity. It's essentially a dictionary lookup, making it faster for frequent queries.
-The calculation method is more complex, but incurs a small CPU overhead due to shifting and bitwise operations.
+
+Let's return to the original question now.
+
+**Q:** Why write a function to calculate subnet mask values, when you could just return the correct value by directly matching the input?
+
+By testing the performance of each method, the completion times for each test should help answer that question.
 
 ### Benchmarking Execution Times
-To test performance, we use `Measure-Command`:
+
+The simplest test of performance uses [Measure-Command](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/measure-command)
+
 ```powershell
-Measure-Command { Convert-CIDRToSubnetMask-Switch -CIDR 24 }
-Measure-Command { Convert-CIDRToSubnetMask-Hashtable -CIDR 24 }
-Measure-Command { Convert-CIDRToSubnetMask-Bitwise -CIDR 24 }
+Measure-Command { Convert-CIDRToSubnetMask_Switch -CIDR 24 }
+Measure-Command { Convert-CIDRToSubnetMask_Hashtable -CIDR 24 }
+Measure-Command { Convert-CIDRToSubnetMask_Bitwise -CIDR 24 }
 ```
 ### Benchmarking Results
 - Switch lookup: ~1.2604ms
 - Hashtable lookup: ~0.9555ms
 - Bitwise method: ~1.5305ms
 - just 0.575ms from slowest to fastest
+
+### Which Approach is Faster?
+The lookup method (switch or hash table) is free from complexity. It's essentially a dictionary lookup, making it faster for frequent queries.
+The calculation method is more complex, but incurs a small CPU overhead due to shifting and bitwise operations.
 
 For individual runs, the difference is negligible.
 
@@ -276,20 +284,23 @@ Describe "ConvertFromCIDR - Data driven tests" {
             @{ CIDR = $_.Key; Expected = $_.Value }
         }
     ) { $CIDR | Convert-CIDRToSubnetMask | Should -Be $Expected }
-    # equavalent $_.CIDR | ConvertFromCIDR | Should -Be $_.Expected
+    # replace Convert-CIDRToSubnetMask for correct function name when testing.
 
 }
 ```
-If you prefer to not use the `Data driven tests` method above, this second example provides an `IT` block containing 6 of the 32 options. You can swap this `IT` block and remove the `$masks` assignment to implement the more familiar test structure. And you can expand this to include all 32 test options too.
+If you prefer to not use the `Data driven tests` method above, this second example provides a test block containing 6 of the 32 options using the more familiar Pester test structure. This can be expanded to include all 32 test options.
 
 ```powershell
-It "The correct subnet mask is generated" {
-    0  | Convert-CIDRToSubnetMask | Should -BeExactly '0.0.0.0'
-    1  | Convert-CIDRToSubnetMask | Should -BeExactly '128.0.0.0'
-    16 | Convert-CIDRToSubnetMask | Should -BeExactly '255.255.0.0'
-    23 | Convert-CIDRToSubnetMask | Should -BeExactly '255.255.254.0'
-    24 | Convert-CIDRToSubnetMask | Should -BeExactly '255.255.255.0'
-    26 | Convert-CIDRToSubnetMask | Should -BeExactly '255.255.255.192'
+Describe "ConvertFromCIDR tests" {
+
+    It "The correct subnet mask is generated" {
+        0  | Convert-CIDRToSubnetMask | Should -BeExactly '0.0.0.0'
+        1  | Convert-CIDRToSubnetMask | Should -BeExactly '128.0.0.0'
+        16 | Convert-CIDRToSubnetMask | Should -BeExactly '255.255.0.0'
+        23 | Convert-CIDRToSubnetMask | Should -BeExactly '255.255.254.0'
+        24 | Convert-CIDRToSubnetMask | Should -BeExactly '255.255.255.0'
+        26 | Convert-CIDRToSubnetMask | Should -BeExactly '255.255.255.192'
+    }
 }
 ```
 
@@ -300,9 +311,11 @@ It "The correct subnet mask is generated" {
 - 20ms from slowest to fastest (performance difference is exacerbated when executing 32 tests)
 
 ## Final Verdict
-- **Performance:** For performance-critical applications, the hardcoded lookup is slightly faster.
-- **Maintainability:** The hardcoded lookup wins here as well—it's more readable and beginner-friendly.
-- **Flexibility:** While flexibility could be important in some cases, it’s not a key factor for this exercise.
+- **Performance:** When performance matters, the hardcoded lookup is slightly faster.
+- **Maintainability:** The hardcoded lookup wins here as well, it's more readable and friendly.
+- **Flexibility:** While flexibility can be important, it’s not a key factor for this exercise.
 - **Bitwise Calculation:** The bitwise method is compact, but slightly slower due to string operations and conversions. It's less intuitive, especially for those unfamiliar with binary IP calculations.
 
-Overall, the  difference is minimal unless you're working at large scale 🚀.  The choice is yours.
+I'd chose the *wrong one* of course, as I would choose the compact code ahead of the faster 🚀 hard coded methods, and the bitwise method is straightforward to follow.
+
+Overall, the difference is minimal unless you're working at large scale.  The choice is yours.
