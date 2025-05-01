@@ -51,8 +51,9 @@ Try it, `'11100000000000000000000000000000' -split '(.{8})'` and you can see why
 
 Another goodie, the LLM also modified the conversion method from `[convert]::ToByte()` to `[convert]::ToInt32()`.
 
-One flaw, as the LLM offering gives no support for support pipeline input, easily fixed by adding **ValueFromPipeline**: `[Parameter(Mandatory,ValueFromPipeline)]`.
-Better [Prompt Engineering](https://en.wikipedia.org/wiki/Prompt_engineering) would have helped that too.
+One flaw, as the LLM offering gives no support for support pipeline input, easily fixed by adding [ValueFromPipeline argument](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_functions_advanced_parameters#valuefrompipeline-argument): `[Parameter(Mandatory,ValueFromPipeline)]`
+
+Better [Prompt Engineering](https://en.wikipedia.org/wiki/Prompt_engineering) would have helped too.
 
 ## Testing code
 So how about testing the function and observing for performance?
