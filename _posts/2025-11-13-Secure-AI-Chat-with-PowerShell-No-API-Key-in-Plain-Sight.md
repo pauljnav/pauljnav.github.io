@@ -1,4 +1,4 @@
-# Secure AI Chat with PowerShell: No API in Plain Sight 🔑
+# Secure AI Chat with PowerShell: No API Key in Plain Sight 🔑
 
 I've just published a new PowerShell function, **`Send-AIChat.ps1`**, designed for easily interacting with AI APIs. 
 While the function itself simplifies the API call, its most critical feature I'm demonstrating within, is how it 
