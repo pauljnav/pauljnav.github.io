@@ -8,6 +8,7 @@
 - Jeff Hicks, Educator and Toolmaker, [jdhitsolutions.com](https://jdhitsolutions.com) [The Lonely Administrator](https://jdhitsolutions.com/blog/tag/powershell/)
 - Mike F Robbins, [mikefrobbins.com](https://mikefrobbins.com/) [Hey Scripting Guys blog](https://devblogs.microsoft.com/scripting/tag/mikefrobbins.com)
 - Andrew Pla, a human centric motivator [PDQ Podcast](https://youtube.com/@pdq)
+- Jeffrey Snover, [jeffreysnover](https://www.linkedin.com/in/jeffreysnover/) Distinguished Engineer, Technical Fellow, the inventor of Windows PowerShell.
 
 ### GitHub Pages
 
