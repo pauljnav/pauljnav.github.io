@@ -582,6 +582,8 @@ I hope the method above helps you to walk your own way around the FunctionDefini
 
 This pattern is a great foundation for more advanced PowerShell analysis—like exporting function metadata and validating module structure.
 
+Note: The AST only includes code from the file you parse; functions in dot-sourced files are not listed unless you parse those files separately.
+
 ## Why AST works well for Get-FunctionName
 
 * No execution of the function code
