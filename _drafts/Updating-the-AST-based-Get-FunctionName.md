@@ -582,8 +582,6 @@ I hope the method above helps you to walk your own way around the FunctionDefini
 
 This pattern is a great foundation for more advanced PowerShell analysis—like exporting function metadata and validating module structure.
 
-Note: The AST only includes code from the file you parse; functions in dot-sourced files are not listed unless you parse those files separately.
-
 ## Why AST works well for Get-FunctionName
 
 * No execution of the function code
@@ -594,10 +592,19 @@ Note: The AST only includes code from the file you parse; functions in dot-sourc
 
 ---
 
+### What happens if a parsed script has dot sourced files?
+
+The AST only includes code from the file you parse; functions in dot-sourced files are not listed unless you parse those files separately.
+
+### What happens if the syntax of a parsed file is broken?
+
+If a file has syntax errors, `ParseFile()` still returns an AST plus an error list in `$errors`, so you can report (or take other action) based on that.
+
 Later, check out:
 
 - Returning full AST objects instead of names
 - Detecting exported vs private functions
+
 And from mdgrs
 - If a parsed script has dot sourced files, are the functions in those files also listed, or are they stored separately in AST?
 - What happens if the syntax of a parsed file is broken?
