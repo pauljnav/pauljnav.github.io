@@ -4,12 +4,12 @@ As time goes by, we all find better ways of writing old code, such as changing a
 
 In this post I look back at an old [Bluesky](https://bsky.app/profile/tecknikp.bsky.social/post/3lhesandezc2f) post covering `Get-FunctionName` - a function from my [#PesterUtility](https://github.com/pauljnav/PesterUtility) repo. And in this, I write about how I extract function names (from a script) using `ScriptBlockAst` and `FunctionDefinitionAst` parsing, and as I learned more, I made progress in the methods I used, and I got a little better at PowerShell.
 
-*PowerShell's **Abstract Syntax Tree (AST)** is part of the language, and this post covers some of it's capabilities.
+*PowerShell's **Abstract Syntax Tree (AST)** is part of the language, and this post covers some of its capabilities.
 See Reference [system.management.automation.language.ast](https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.language.ast)*
 
 ### Code improvement with time
 
-I write about 3 versions of a function that captures Function Names from `.ps1`/`.psm1` scripts.
+I write about 3 versions of a function that captures function names from `.ps1`/`.psm1` scripts.
 
 The method used in the latest version outputs more than just function "Name", as it now outputs additional useful properties that are found on the `FunctionDefinitionAst` class as used when testing a function. See reference [FunctionDefinitionAst](https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.language.functiondefinitionast).
 
@@ -72,7 +72,7 @@ As references; many other PowerShellers have the better code published, just che
 [Select-Ast](https://www.powershellgallery.com/packages/Select-Ast) by [Kevin Marquette](https://github.com/KevinMarquette/Select-Ast) has
 `Select-AST -AstScriptBlock $ScriptBlock -Type FunctionDefinitionAst` functionality.
 
-[PSFunctionTools](https://www.powershellgallery.com/packages/PSFunctionTools) by [Jeff Hicks](https://github.com/jdhit'solutions/PSFunctionTools) has a `Get-FunctionName -Path $ScriptPath` functionality.
+[PSFunctionTools](https://www.powershellgallery.com/packages/PSFunctionTools) by [Jeff Hicks](https://github.com/jdhitsolutions/PSFunctionTools) has a `Get-FunctionName -Path $ScriptPath` functionality.
 
 ---
 
@@ -114,7 +114,7 @@ process {
 
 The first version used `::Tokenize()`, and when iterating the output, I could see that each token had a `.Type`, a `.Content`, and so I parsed those, extracting tokens whose `.Type` equalled `Keyword` and whose `.Content` equalled `function` or `Filter`. But to be assured the item was a function, I needed an inner loop to check if the next token had `.Type` equalling `CommandArgument`.
 
-This gave it's output as a raw name listing, useful, but not objects.
+This gave its output as a raw name listing, useful, but not objects.
 ```PowerShell
 Get-ThisFunction
 Get-ThatFunction
@@ -205,7 +205,7 @@ Process {
 
 Version 2 is a lot smaller and better, it got easier thanks to additional study of the AST with FunctionDefinitionAst.
 
-And with the use of `Select-Object Name` it has improved it's outputs with a good PS object pattern, as that sends the Property named `Name` and the value within to the output.
+And with the use of `.. | Select-Object Name` it has improved its outputs with a good PS object pattern, as that sends the Property named `Name` and the value within to the output.
 
 ```PowerShell
 Name
@@ -290,7 +290,7 @@ Begin {
 }
 
 Process {
-    # Resolve the path to it's LiteralPath.
+    # Resolve the path to its LiteralPath.
     $resolvedPath = (Resolve-Path -LiteralPath $Path -ErrorAction Stop).ProviderPath
 
     # ::ParseFile() method parses the scriptblocks from the script into AST object details.
@@ -447,7 +447,7 @@ Parameters     Property   System.Collections.ObjectModel.ReadOnlyCollection[Syst
 Parent         Property   System.Management.Automation.Language.Ast Parent {get;}
 ```
 
-The output gives an object having 7 properties, Name, Body, Extent, IsFilter, Parent, etc.
+The Get-Member output gives an object having 7 properties, Name, Body, Extent, IsFilter, Parent, etc.
 
 ### Take a look at two - Name and IsFilter by selecting only those.
 
@@ -461,11 +461,11 @@ Invoke-DataCleanup       False
 Set-EnvironmentConfig    False
 ```
 
-That outputs yields two basic properties from each of the three objects. The `Name` we have been chasing all along is there, and we can see far more!
+That output yields two basic properties from each of the three objects.
 
 ### Go deeper - take a look at nested data under `.Extent`
 
-Specify `Select-Object` with the `-ExpandProperty` parameter to see the nested details.
+Let's specify `Select-Object` with the `-ExpandProperty` parameter to see the nested details.
 
 ```PowerShell
 $FunctionDefinitionAst | Select-Object -First 1 -ExpandProperty Extent
@@ -494,6 +494,7 @@ Lots of great information from the resulting object:
 File, StartLineNumber, EndLineNumber, Text, and more. And the property data could easily be surfaced, and that's what v4 does.
 
 One nested property in the example above is: `$FunctionDefinitionAst.Extent.StartLineNumber`. Let's select StartLineNumber from each object.
+
 ```PowerShell
 $FunctionDefinitionAst | ForEach-Object Extent | Select-Object StartLineNumber
 
@@ -508,7 +509,7 @@ As you can see, selecting data from the nested structure of the object is possib
 
 ### A look at calculated properties
 
-At this point let's introduce `calculated properties` as due to the nested depth of the tree structure of the object, calculated properties prove useful to surface some of that data to the user as function output.
+At this point let's introduce `calculated properties` to cope with the nested depth of the tree structure of the object. Calculated properties prove useful to surface some of that data to the user, and we can use this in the functions output.
 
 See reference [about_calculated_properties](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_calculated_properties)
 
@@ -529,8 +530,8 @@ By using `Expression = { $_.Extent.StartLineNumber }`, we select that value from
 
 ### Put this together and capture more properties
 
-Selecting the top-level properties Name, IsFilter, Parameters.</br>
-Also select properties nested under the .Extent property; StartLineNumber, File, Text.</br>
+Selecting the top-level properties Name, IsFilter, Parameters.
+Also select properties nested under the .Extent property; StartLineNumber, File, Text.
 
 ```PowerShell
 $FunctionDefinitionAst | Select-Object Name, IsFilter, Parameters,
@@ -548,11 +549,7 @@ And by using calculated properties we can give that data a new name. I choose `N
 
 The combined result of selecting normal and calculated properties generates the appearance of having all those properties on the `$FunctionDefinitionAst` object in a simple and repeatable way.
 
-It gives an equivalent of an implementation like the following, where each value is calculated.
-
 ```PowerShell
-$FunctionDefinitionAst | Select-Object Name, IsFilter, Parameters, LineNumber, FilePath, FileName, Text
-
 # Result:
 Name       : Get-ThisFunction
 IsFilter   : False
@@ -576,8 +573,6 @@ Text       : function Get-ThisFunction {
 
 There are more properties available to expose, but this much is good enough for my needs.
 
-I hope the method above helps you to walk your own way around the FunctionDefinitionAst object and it's nested details to surface other properties.
-
 ---
 
 This pattern is a great foundation for more advanced PowerShell analysis—like exporting function metadata and validating module structure.
@@ -592,19 +587,27 @@ This pattern is a great foundation for more advanced PowerShell analysis—like 
 
 ---
 
+### Community questions
+
+At this point in the story, I was at a point where I would publish this, but a few on-point questions from the PowerShell community made me realise I had left a few stones unturned. And the benefit of this is that I can now plan another version of `Get-FunctionName`, one that is improved by tackling those questions.
+
+So, thanks to [mdgrs](https://github.com/mdgrs-mei) for reviewing the draft blog, and for bringing the questions.
+
 ### What happens if a parsed script has dot sourced files?
 
-The AST only includes code from the file you parse; functions in dot-sourced files are not listed unless you parse those files separately.
+A: The AST only includes code from the file you parse; functions in dot-sourced files are not listed unless you parse those files separately.
 
 ### What happens if the syntax of a parsed file is broken?
 
-If a file has syntax errors, `ParseFile()` still returns an AST plus an error list in `$errors`, so you can report (or take other action) based on that.
+A: If a file has syntax errors, `ParseFile()` still returns an AST plus an error list in `$errors`, so you can report (or take other action) based on that.
 
 Later, check out:
 
-- Returning full AST objects instead of names
-- Detecting exported vs private functions
+- What kind of suitable errors feature can be added to the existing function?
+- Then improve the function.
 
-And from mdgrs
-- If a parsed script has dot sourced files, are the functions in those files also listed, or are they stored separately in AST?
-- What happens if the syntax of a parsed file is broken?
+---
+
+In conclusion, I hope the details above help you to walk your own way around the FunctionDefinitionAst object and its nested details to surface other properties. And generating a dummy set of functions for testing proved a useful method that aids that process.
+
+Also, reach out to see if anyone from the PowerShell community would like to review what you're doing; feedback and questions from mdgrs was ideal - thanks again to **mdgrs**.
