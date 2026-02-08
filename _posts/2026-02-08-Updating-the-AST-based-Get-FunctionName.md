@@ -37,7 +37,7 @@ I had a need to reliably (and easily) list the function names from scripts, beca
 
 [Regex](https://learn.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference) is great. [Select-String](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/select-string) is also great. We know that regex search patterns could help to identify `"function Do-Something"` and `"filter Do-SomethingElse"`, but that's re-inventing the wheel when the AST exists, and searching with text patterns could prove error-prone.
 
-For example, a function named `"DoSomething"` is also legitimate PowerShell. And through the power of AST, we can represent PowerShell code as a structured tree, as objects with properties. And parsing a script into an AST lets you inspect all such contents **without executing anything**.
+For example, a function named `"DoSomething"` is also legitimate PowerShell, and if using regex matchine, we must adjust regex to recognise all legal function naming patterns. Through the power of AST, we can represent PowerShell code as a structured tree, as objects defined with properties. And parsing a script into an AST lets you inspect all such properties and contents **without executing anything**.
 
 PowerShell's **Abstract Syntax Tree (AST)** makes this easy and safe. Reference [ast](https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.language.ast)
 
