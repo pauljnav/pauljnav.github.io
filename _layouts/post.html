@@ -24,7 +24,7 @@ layout: default
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
     <p>
-      <img src="https://hitscounter.dev/{{ site.github.repository_name }}{{ page.url | replace: '/', '-' }}?label=Views&color=D32F2F" alt="Views">
+      <img src="https://hitscounter.dev/{{ site.github.repository_name }}-{{ page.url | slugify }}?label=Views&color=D32F2F" alt="Views">
     </p>
     {% include navlinks.html %}
   </div>
