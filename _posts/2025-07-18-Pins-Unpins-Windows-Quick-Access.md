@@ -1,4 +1,4 @@
-## Quick end easy function Set-QuickAccessItem
+## Quick and easy function Set-QuickAccessItem
 
 I'm changing my pc due to BSOD issues, and wanted a quick way to capture my Quick Access pins at Windows 11.
 
