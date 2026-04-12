@@ -1,6 +1,6 @@
 # Colouring PR Text in GitHub Markdown - A Tip to Stumble Upon
 
-While discussing the argument completer for an AI Provider in PR dfinke/psaisuite#49, I wanted some simple colored text in my PR comments to accurately reflect [PowerShell](https://learn.microsoft.com/powershell/) output.
+While discussing the argument completer for an AI Provider in PR [dfinke/psaisuite#49](https://github.com/dfinke/psaisuite/pull/49), I wanted some simple colored text in my PR comments to accurately reflect [PowerShell](https://learn.microsoft.com/powershell/) output.
 
 And then I discovered a trick that is rarely documented and perhaps not widely known in the [GitHub community](https://github.com/community).
 
