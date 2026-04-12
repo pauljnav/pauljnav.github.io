@@ -174,7 +174,7 @@ You get an ideal mimic for the PowerShell output:
   <span style="color: yellow;">WARNING: FireworksAIKey environment variable is not set..</span>
 </summary>
 
-As a side-note, we didnt implement the <span style="color: yellow;">WARNING on environment var</span> text after discusing on the PR. I may get around to blogging about that PR sometime. It was my **First Open Source PR** after all!
+As a side-note, we didnt implement the <span style="color: yellow;">WARNING on environment var</span> text after discusing on the PR.
 
 ---
 
