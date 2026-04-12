@@ -2,11 +2,11 @@
 
 While discussing the argument completer for an AI Provider in PR dfinke/psaisuite#49, I wanted some simple colored text in my PR comments to accurately reflect [PowerShell](https://learn.microsoft.com/powershell/) output.
 
-I found an approach that is rarely documented and perhaps not widely known in the [GitHub community](https://github.com/community).
+And then I discovered a trick that is rarely documented and perhaps not widely known in the [GitHub community](https://github.com/community).
 
 ## Why did I want colour?
 
-When documenting shell output or sharing UX patterns, I find that text colour is incredibly useful to visually distinguish prompts, commands, variables, and warnings.
+When documenting shell output or sharing UX patterns, colour is incredibly useful to visually distinguish prompts, commands, variables, and warnings.
 
 I didn't want the blandness of this:
 - Yellow for commands
@@ -15,7 +15,7 @@ I didn't want the blandness of this:
 - White for markdown headers
 - Orange for warnings
 
-I wanted colours!
+I wanted colours, not a list of colour names!
 <ul>
   <li><span style="color: Yellow; background-color: #1e1d1d;">Yellow</span> for commands</li>
   <li><span style="color: Grey; background-color: #1e1d1d;">Grey</span> for parameters</li>
@@ -43,14 +43,15 @@ Standard [GitHub-flavored markdown](https://github.github.com/gfm/) doesn't supp
 
 ### The trick I discovered was to code the text using `LaTeX` format
 
-I'm not trying to fool you, dear reader, but I must confess that colourful text blocks above are actually rendered using HTML, not `LaTeX`. This blog post written in GitHub Pages Markdown doesn't support LaTeX formatting, so HTML had to be used in the blog to display the idea.
+I'm not trying to fool you, dear reader, but I must confess that colourful text blocks above are rendered using HTML, not `LaTeX`. GitHub Pages Markdown doesn't support LaTeX colour rendering, so HTML had to step in for this blog post.
 
-*Sorry about that!*
+*Sorry about that*
 
-Use the examples below to sneak and correctly display both LaTeX blocks into your `README.md` and PR Comments.
+But you can sneak the examples below into your `README.md` and PR Comments to correctly display these LaTeX blocks.
+
+## Working LaTeX Examples
 
 ```LaTeX
-I wanted colours!
 - $\textcolor{Yellow}{\textrm{Yellow}}$ for commands
 - $\textcolor{Grey}{\textsf{Grey}}$ for parameters
 - $\textcolor{Green}{\textsf{Green}}$ for variables and comments
@@ -58,9 +59,10 @@ I wanted colours!
 - $\textcolor{Orange}{\textsf{Orange}}$ for warnings
 ```
 
+And for multi‑colour inline text:
+
 ```LaTeX
 <summary>
-   And I wanted
    $\textcolor{yellow}{\textsf{to mix}}$
    $\textcolor{grey}{\textsf{ colours}}$
    $\textcolor{green}{\textsf{ on a}}$
@@ -73,34 +75,33 @@ I wanted colours!
 
 ---
 
-Now I hear you asking; "What is the `<summary>..</summary>` tags for?"
+## Why the `<summary>` Tag Matters
 
-The `<summary>` tags are needed in a PR comment to make the sentence appear on one line, and without it your texts get written on many lines.  
-But for a README.md, the `<summary>` tags can be omitted as the sentence appears on one line in either case.
+In PR comments, GitHub renders LaTeX inline *only inside* `<summary>` tags.  
+Without them, each coloured word appears on its own line.
 
-Try both out in GitHub within a PR comment and README.md.
+In `README.md`, the `<summary>` tag is optional — the line renders correctly either way.
+
+Try both in a PR comment and in a README to see the difference.
 
 ---
 
-### Failed Attempts and Odd Behaviors
+## Failed Attempts and Odd Behaviors
 Before landing on the `LaTeX` trick, I tried several approaches that *should* have worked in theory but didn't:
 
-#### **Inline HTML**
+### **Inline HTML**
 
-GitHub strips CSS `style=` attributes entirely - and not only for PR Comments.
+GitHub strips `style=` attributes entirely - and not only for PR Comments.
 
-Even `<span style="color:yellow">` becomes plain text. And the basic `<font>` tags are rendered as literal text, not HTML.
+Even `span style="color: yellow;">Yellow</span>` renders as plain text.
 
-The following both output as a plain `Yellow for prompts`
-```html
-<span style="color: Yellow;">Yellow</span> for prompts
-<font color="Yellow">Yellow</font> for prompts
-```
+And `<font>` tags are treated just the same as plain.
 
-#### **LaTeX in GitHub Pages Markdown**
+### **LaTeX in GitHub Pages Markdown**
 
-This block of LaTeX
+GitHub Pages does not render LaTeX colour commands.  
 
+This block:
 ```LaTeX
 <summary>
    $\textcolor{green}{\textsf{suddenly}}$
@@ -108,7 +109,7 @@ This block of LaTeX
    $\textcolor{red}{\textsf{ styled}}$
 </summary>
 ```
-Displays in GitHub Pages Markdown as plain text because its not rendered - and you get the following:
+displays exactly as the following on this very blog post:
 <summary>
    $\textcolor{green}{\textsf{suddenly}}$
    $\textcolor{yellow}{\textsf{ becomes}}$
@@ -125,9 +126,12 @@ The following example outputs as: ${\color{red}Color \space your \space \color{g
 ```
    ${\color{red}Color \space your \space \color{green}Verb-Noun \space \color{blue}in \space Github}$
 ```
-This is math‑mode LaTeX using `\color{red}` a math‑mode LaTeX colour switch. Nice colours, but that injects spaces before and after the verb noun hyphen (notOK). And you get that result when added to PR, README.md and here in GitHub Pages Markdown.
 
-The format I blog about is different, this is text‑mode LaTeX using `\textcolor{red}` a text‑mode colour wrapper.
+This is math‑mode LaTeX using `\color{red}` (a math‑mode LaTeX colour switch). Nice colours, but that injects spaces before and after the verb noun hyphen (notOK). And you get that result when added to PR, README.md and here in GitHub Pages Markdown.
+
+## Text‑Mode LaTeX (the one that works)
+
+The format I blog about is different, this is text‑mode LaTeX using `\textcolor{red}` (a text‑mode colour wrapper).
 ```
    $\textcolor{red}{\textsf{ styled}}$
 ```
@@ -136,22 +140,21 @@ The format I blog about is different, this is text‑mode LaTeX using `\textcolo
 
 These failures helped narrow down the little corner of GitHub's rendering engine where LaTeX color commands are interpreted.
 
----
-
 ## An Accidental Discovery: LaTeX Color Commands
 
 I found some interesting references:
-- [stackoverflow how-to-add-color](https://stackoverflow.com/questions/11509830/how-to-add-color-to-githubs-readme-md-file)  
-- github markup issue [github/markup/issues/369](https://github.com/github/markup/issues/369)
 - pvrego gist [How to make README.md files with colored texts in Github](https://gist.github.com/pvrego/2e346674c3abbaa6366dfe86b8488dc9)
+- [stackoverflow questions/11509830](https://stackoverflow.com/questions/11509830/how-to-add-color-to-githubs-readme-md-file)  
+- [github/markup/issues/369](https://github.com/github/markup/issues/369)
+- [github/markup/issues/1440](https://github.com/github/markup/issues/1440) remains open, related to the stackoverflow questions/11509830 above.
 
 ---
 
-This is what I wanted for the PR comment.
+## Finally, this is what I wanted for the PR comment.
 
-By dropping in LaTeX-like color commands inside `<summary>` blocks, like this:
+By dropping in LaTeX text‑mode colour commands inside `<summary>` blocks, like this:
 
-```md
+```LaTeX
 <summary>
    $\textcolor{yellow}{\textsf{Invoke-ChatCompletion}}$
    $\textcolor{grey}{\textsf{-Messages}}$
@@ -163,19 +166,22 @@ By dropping in LaTeX-like color commands inside `<summary>` blocks, like this:
 
 You get an ideal mimic for the PowerShell output:
 
-<summary>
-   $\textcolor{yellow}{\textsf{Invoke-ChatCompletion}}$
-   $\textcolor{grey}{\textsf{-Messages}}$
-   $\textcolor{green}{\textsf{\$Message}}$
-   $\textcolor{white}{\textsf{fireworksai:}}$
-   $\textcolor{yellow}{\textsf{WARNING: FireworksAIKey environment variable is not set..}}$
+<summary style="background-color: #1e1d1d; padding: 6px;">
+  <span style="color: yellow;">Invoke-ChatCompletion</span>
+  <span style="color: grey;">-Messages</span>
+  <span style="color: green;">$Message</span>
+  <span style="color: white;">fireworksai:</span>
+  <span style="color: yellow;">WARNING: FireworksAIKey environment variable is not set..</span>
 </summary>
+
+As a side-note, we didnt implement the <span style="color: yellow;">WARNING on environment var</span> text after discusing on the PR. I may get around to blogging about that PR sometime. It was my **First Open Source PR** after all!
 
 ---
 
-[GitHub Reference](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)
+## A Key GitHub Reference
 GitHub's math rendering capability uses MathJax; an open source, JavaScript-based display engine. MathJax supports a wide range of LaTeX macros.  
-Mathematical expressions rendering is available in GitHub Issues, GitHub Discussions, pull requests, wikis, and Markdown files.
+Mathematical expressions rendering is available in GitHub Issues, GitHub Discussions, pull requests, wikis, and Markdown files.  
+See [writing-on-github](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)
 
 ## The Goodies
 
@@ -204,5 +210,8 @@ I hope the `goodies` documented here can help you in some of your own PR efforts
 
 ---
 
-**Summary:**
-I stumbled onto this “feature” while looking for a better documentation experience, and even though it isn't fully supported in GitHub markdown, it's a curious workaround when you need to show your intentions! Try it; copy markdown with LaTeX color commands into VS Code (with a LaTeX extension) or into GitHub, and watch it light up!.
+**Final Thoughts:**
+
+I stumbled onto this “feature” while looking for a better documentation experience, and even though it's not fully supported, it works well enough to be useful
+
+Try it. Copy the LaTeX colour commands into VS Code (with a LaTeX extension) or into GitHub, and watch them light up!.
