@@ -17,11 +17,13 @@ I didn't want the blandness of this:
 - Orange for warnings
 
 I wanted colours!
-  - $\textcolor{Yellow}{\textrm{Yellow}}$ for commands 
-  - $\textcolor{Grey}{\textsf{Grey}}$ for parameters
-  - $\textcolor{Green}{\textsf{Green}}$ for variables and comments
-  - $\textcolor{White}{\textsf{White}}$ for markdown headers
-  - $\textcolor{Orange}{\textsf{Orange}}$ for warnings
+<ul>
+  <li><span style="color: Yellow;">Yellow</span> for commands</li>
+  <li><span style="color: Grey;">Grey</span> for parameters</li>
+  <li><span style="color: Green;">Green</span> for variables and comments</li>
+  <li><span style="color: White; background-color: black;">White</span> for markdown headers</li>
+  <li><span style="color: Orange;">Orange</span> for warnings</li>
+</ul>
 
 And
 <summary>
