@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Contributing to PSAISuite: A Practical, Real‑World Guide"
-date: 2026-05-08
+date: 2026-05-11
 categories: [opensource, psaisuite, powershell]
 tags: [git, github, pull-requests, contributions, workflow]
 author: Paul
@@ -10,8 +10,7 @@ description: "A clear, practical guide to contributing to the PSAISuite PowerShe
 
 # **Contributing to PSAISuite: A Practical Guide for New Contributors**
 
-Open‑source thrives on ideas and community effort.
-Open‑source projects thrive when people contribute to the community effort — not only with code, but with ideas, documentation, bug reports, and improvements. When I first joined **[PSAISuite](https://github.com/dfinke/psaisuite)**, I found the hardest part wasn't the code; it was the mechanics of the workflow. Handling forks, remotes, branches, and PR etiquette can be daunting, but once you have that down, contributing becomes fun.
+Open‑source thrives when people contribute to the community effort — not only with code, but with ideas, documentation, bug reports, and improvements. When I first joined **[PSAISuite](https://github.com/dfinke/psaisuite)**, I found the hardest part wasn't the code; it was the mechanics of the workflow. Handling forks, remotes, branches, and PR etiquette can be daunting, but once you have that down, contributing becomes fun.
 
 **Two key tips for new contributors:**
 
@@ -68,7 +67,8 @@ origin  https://github.com/<you>/PSAISuite.git (push)
 Add the owner's repo as a second remote:
 
 ```bash
-git remote add upstream https://github.com/PowerShell/PSAISuite.git
+git remote add upstream https://github.com/dfinke/psaisuite.git
+
 ```
 
 Now:
@@ -107,7 +107,7 @@ Here's the story I use when teaching this:
 > Imagine your `main` branch is your “clean room.”
 > It should always match upstream exactly — no experiments, no edits, no half‑finished work.
 >
-> If you start hacking on `main`, and upstream changes while you're working, your `main` becomes a Frankenstein branch.
+> If you start hacking on `main`, and upstream changes while you're working, your `main` becomes a tangled branch.
 >
 > Now you can't cleanly sync with upstream, and every future PR becomes a conflict nightmare.
 
@@ -186,20 +186,30 @@ This makes commit history readable and searchable.
 
 ## **7. Sync Your Branch With Upstream Before Pushing**
 
-This prevents conflicts later.
+Keep your branch up to date to avoid conflicts later.
 
 ```bash
 git fetch upstream
 git merge upstream/main
 ```
 
-or, for a cleaner history:
+Or, for a cleaner history (locally and in the upstream):
 
 ```bash
+git fetch upstream
 git rebase upstream/main
 ```
 
 This updates **your local branch**, not your fork.
+
+**NB — `git merge` vs `git rebase`:**  
+Use **git merge** if you've already pushed your branch — it preserves shared history and avoids rewriting commits that others may have pulled.  
+Use **git rebase** to clean up your commits *before your first push*, producing a cleaner history that also results in a tidier upstream merge.
+
+**Never rebase after a push** because it rewrites commit hashes. Anyone who has already pulled your branch will suddenly have a different history, causing conflicts, confusion, and extra manual effort to reconcile diverging branches.
+
+Also see note **#10 (Draft PRs)**:  
+Rebasing aims for one polished commit in the upstream history, while a Draft PR encourages incremental commits during collaboration — both are useful, but they are like opposites and draft PRs encourage many commits during collaboration.
 
 ---
 
@@ -230,13 +240,13 @@ Git now knows the relationship.
 
 ## **9. Open a Pull Request (PR)**
 
-GitHub will show:
+GitHub on detecting the change will show:
 
 > Compare & pull request
 
 Choose:
 
-- **base:** upstream/main
+- **base:** upstream/main  (target upstream/main, not your fork's main)
 - **compare:** origin/feature/add-model-metadata
 
 Write a clear PR description.
@@ -247,23 +257,25 @@ Write a clear PR description.
 
 A **Draft PR** is perfect when:
 
-- you want early visibility
-- you want CI to run
-- you want to discuss the approach
-- you're not ready for a full review
+- you want early visibility  
+- you want CI to run  
+- you want to discuss the approach  
+- you're not ready for a full review  
+
+Rebase before your first push; that first push is what opens the Draft PR if you choose to draft.
 
 I used this myself:
 
-1. Opened a Draft PR early
-2. Continued pushing commits
-3. Once tests passed and code was ready
-4. Clicked **“Ready for review”**
+1. Opened a Draft PR early  
+2. Continued pushing commits  
+3. Once tests passed and code was ready  
+4. Clicked **“Ready for review”**  
 
 This signals to maintainers:
 
 > “I'm done — please review.”
 
-Draft PRs reduce friction and improve collaboration.
+Draft PRs can improve collaboration when suitable.
 
 ---
 
@@ -300,7 +312,7 @@ git branch -d feature/add-model-metadata
 git push origin --delete feature/add-model-metadata
 ```
 
-This keeps your fork tidy.
+This keeps your fork tidy as it updates your local main to match upstream.
 
 ---
 
