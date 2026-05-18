@@ -1,3 +1,13 @@
+---
+layout: post
+title: "Colouring PR Text in GitHub Markdown: A Tip to Stumble Upon"
+date: 2026-04-12
+categories: [github, markdown, latex]
+tags: [pull-requests, comments, markdown, latex, formatting]
+author: Paul Naughton
+description: "A practical tip for using LaTeX and HTML to add coloured text to GitHub PR comments and markdown examples."
+---
+
 # Colouring PR Text in GitHub Markdown - A Tip to Stumble Upon
 
 While discussing the argument completer for an AI Provider in PR [dfinke/psaisuite#49](https://github.com/dfinke/psaisuite/pull/49), I wanted some simple colored text in my PR comments to accurately reflect [PowerShell](https://learn.microsoft.com/powershell/) output.
