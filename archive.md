@@ -12,4 +12,6 @@ title: Blog Archive
   </ul>
 {% endfor %}
 
+[Tags Graph]({% link tags-graph.html %})
+
 [![Hits](https://hits.sh/pauljnav.github.io.svg)](https://hits.sh/pauljnav.github.io/)
