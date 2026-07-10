@@ -2,8 +2,8 @@
 layout: post
 title: "Managing Windows Microphone Privacy with PowerShell"
 date: 2026-07-10
-categories: [Microphone, Privacy, powershell]
-tags: [Microphone, Privacy]
+categories: [microphone, privacy, powershell]
+tags: [microphone, privacy]
 author: Paul Naughton
 description: "Two helper functions to make global microphone privacy management on Windows faster and safer from the command line."
 ---
@@ -12,8 +12,8 @@ description: "Two helper functions to make global microphone privacy management 
 
 I've added two helper functions to make global microphone privacy management on Windows faster and safer from the command line:
 
-- Get-MicrophoneAccess.ps1
-- Set-MicrophoneAccess.ps1
+- [Get-MicrophoneAccess](#get-microphoneaccessps1)
+- [Set-MicrophoneAccess](#set-microphoneaccessps1)
 
 ## Why these functions?
 
@@ -68,11 +68,10 @@ Naturally, I will expand with better privacy functions to cover location, webcam
 
 # The function goodies
 
-## Get-MicrophoneAccess.ps1
+### Get-MicrophoneAccess.ps1
 
 ```ps1
 
-# Get-MicrophoneAccess.ps1
 function Get-MicrophoneAccess {
 
 <#
@@ -120,7 +119,7 @@ Author: Paul Naughton
 
 ```
 
-## Set-MicrophoneAccess.ps1
+### Set-MicrophoneAccess.ps1
 
 ```ps1
 
