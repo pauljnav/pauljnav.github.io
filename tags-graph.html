@@ -1,0 +1,107 @@
+---
+layout: default
+title: Tag Network Graph
+permalink: /tags-graph/
+---
+
+<style>
+    #tag-graph-container {
+        width: 100%;
+        height: 600px;
+        border: 1px solid #ddd;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+    }
+
+    .graph-instructions {
+        font-size: 0.9em;
+        color: #666;
+        margin-bottom: 10px;
+    }
+</style>
+
+<h2>Interactive Tag Web</h2>
+<p class="graph-instructions">💡 Drag nodes to explore. Click a blue 📄 post node to read the article.</p>
+
+<div id="tag-graph-container"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.26.0/cytoscape.min.js"></script>
+
+<script>
+    // 1. Jekyll generates the data array using Liquid templates at build-time
+    const graphElements = [
+        // Generate the Tag Nodes
+        {% for tag in site.tags %}
+    { data: { id: 'tag-{{ tag[0] }}', label: '#{{ tag[0] }}', type: 'tag' } },
+    {% endfor %}
+
+    // Generate the Post Nodes and the connection lines (Edges)
+    {% for post in site.posts %}
+    { data: { id: 'post-{{ post.id | slugify }}', label: '📄 {{ post.title | escape }}', url: '{{ post.url | relative_url }}', type: 'post' } },
+    {% for tag in post.tags %}
+    { data: { id: 'edge-{{ post.id | slugify }}-{{ tag }}', source: 'post-{{ post.id | slugify }}', target: 'tag-{{ tag }}' } },
+    {% endfor %}
+    {% endfor %}
+  ];
+
+    // 2. Initialize the spider web layout
+    const cy = cytoscape({
+        container: document.getElementById('tag-graph-container'),
+        elements: graphElements,
+        style: [
+            {
+                selector: 'node',
+                style: {
+                    'label': 'data(label)',
+                    'font-size': '12px',
+                    'text-valign': 'center',
+                    'text-halign': 'right',
+                    'text-margin-x': 4,
+                    'color': '#333',
+                    'background-color': '#007acc'
+                }
+            },
+            {
+                selector: 'node[type="tag"]',
+                style: {
+                    'background-color': '#ff5722',
+                    'font-weight': 'bold',
+                    'shape': 'ellipse',
+                    'width': '20px',
+                    'height': '20px'
+                }
+            },
+            {
+                selector: 'node[type="post"]',
+                style: {
+                    'background-color': '#00bcd4',
+                    'shape': 'rectangle',
+                    'width': '15px',
+                    'height': '15px'
+                }
+            },
+            {
+                selector: 'edge',
+                style: {
+                    'width': 2,
+                    'line-color': '#bbb',
+                    'curve-style': 'haystack'
+                }
+            }
+        ],
+        layout: {
+            name: 'cose', // Physics-based "CoSE" layout acts like a spring system
+            idealEdgeLength: 100,
+            nodeOverlap: 20,
+            refresh: 20,
+            fit: true,
+            padding: 30
+        }
+    });
+
+    // 3. Make post nodes clickable so they navigate to the article
+    cy.on('tap', 'node[type="post"]', function (evt) {
+        const node = evt.target;
+        window.location.href = node.data('url');
+    });
+</script>
