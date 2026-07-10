@@ -3,8 +3,6 @@ layout: page
 title: Blog Archive
 ---
 
-[Tags Graph]({% post_url tags-graph %})
-
 {% for tag in site.tags %}
   <h3>{{ tag[0] }}</h3>
   <ul>
