@@ -1,4 +1,7 @@
-## Acknowledgements
+---
+layout: page
+title: Acknowledgements
+---
 
 ### Inspirations
 
