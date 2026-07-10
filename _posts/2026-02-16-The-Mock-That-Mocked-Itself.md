@@ -1,3 +1,13 @@
+---
+layout: post
+title: "The Mock That Mocked Itself: Stabilising ImportExcel Tests in Pester"
+date: 2026-02-16
+categories: [powershell, testing, pester]
+tags: [mocking, import-excel, recursion, unit-tests]
+author: Paul Naughton
+description: "How to diagnose and fix recursive Pester mocks in ImportExcel tests using typed mock objects, parameter filters, and null-safe cleanup."
+---
+
 # The Mock That Mocked Itself: Stabilising `ImportExcel` Tests in Pester
 
 ## TL;DR

@@ -1,3 +1,13 @@
+---
+layout: post
+title: "Avoid Array Addition: PowerShell Performance Tip"
+date: 2025-02-21
+categories: [powershell, performance]
+tags: [arrays, list, measure-command, tips]
+author: Paul Naughton
+description: "A practical PowerShell performance tip showing why array += is expensive and referencing faster methods."
+---
+
 # Avoid Array Addition - Tip
 _This post is updated and replaced by [Avoid-Array-Addition-Tip-update]({% post_url 2025-03-15-Avoid-Array-Addition-Tip-update %})_
 

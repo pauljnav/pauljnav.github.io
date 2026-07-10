@@ -1,3 +1,13 @@
+---
+layout: post
+title: "Extracting PowerShell Function Names with the AST"
+date: 2026-02-08
+categories: [powershell, ast, tooling]
+tags: [scriptblockast, functiondefinitionast, pester, tokenize]
+author: Paul Naughton
+description: "A practical walkthrough of evolving Get-FunctionName from token parsing to AST-based extraction for safer and richer PowerShell script analysis."
+---
+
 # Extracting PowerShell Function Names with the AST
 
 As time goes by, we all find better ways of writing old code, such as changing an old script/function for the better.

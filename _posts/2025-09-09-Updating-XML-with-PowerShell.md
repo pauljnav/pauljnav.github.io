@@ -1,3 +1,13 @@
+---
+layout: post
+title: "Updating XML with PowerShell"
+date: 2025-09-09
+categories: [powershell, xml, automation]
+tags: [xmldocument, namespaces, xpath, scripting]
+author: Paul Naughton
+description: "A practical guide to updating XML with PowerShell, including namespace handling and XPath selection."
+---
+
 # Updating XML with PowerShell
 
 In this example, we need to adjust logging levels without manually editing XML. Doing this with PowerShell is powerful, especially when you want **dynamic, maintainable updates**.

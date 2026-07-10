@@ -1,3 +1,13 @@
+---
+layout: post
+title: "Jira Issue and Atlassian Document Format"
+date: 2024-07-10
+categories: [jira, atlassian, api]
+tags: [adf, json, jira-cloud, powershell]
+author: Paul Naughton
+description: "A practical walkthrough of Atlassian Document Format (ADF) and a PowerShell helper for creating ADF JSON for Jira Cloud issues."
+---
+
 # Jira Issue and Atlassian Document Format
 
 ## Atlassian Document Format (ADF)

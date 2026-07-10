@@ -1,3 +1,13 @@
+---
+layout: post
+title: "PesterUtility: Get-FunctionNamesFromScript"
+date: 2024-09-26
+categories: [powershell, pester, modules]
+tags: [pester, testing, ast]
+author: Paul Naughton
+description: "A short overview of a utility function used to extract function names from PowerShell scripts and help validate module exports."
+---
+
 # PesterUtility
 PesterUtility is a module of mine containing utility functions that assist when Pester testing
 So far I have just the one function `Get-FunctionNamesFromScript.ps1` in the module.

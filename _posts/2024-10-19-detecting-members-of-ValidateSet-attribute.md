@@ -1,3 +1,13 @@
+---
+layout: post
+title: "Programmatically Detecting Members of a ValidateSet Attribute"
+date: 2024-10-19
+categories: [powershell, scripting, parameters]
+tags: [validateset, attributes, tab-completion]
+author: Paul Naughton
+description: "How to inspect PowerShell function parameters to programmatically retrieve ValidateSet values for safer defaults and flexible reporting options."
+---
+
 # Programmatically detecting the members of a ValidateSet attribute within your function.
 
 Well, I struggled with this, so I thought it worth adding to the blog.

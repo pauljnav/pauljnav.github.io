@@ -1,3 +1,13 @@
+---
+layout: post
+title: "How and Why I Started a Blog (Plus Error Type in Try-Catch)"
+date: 2024-06-21
+categories: [powershell, error-handling]
+tags: [try-catch, exceptions, errors, powershell]
+author: Paul Naughton
+description: "A first post on blogging motivation and a practical PowerShell tip for identifying exception types in try/catch blocks."
+---
+
 ## How and why did I start a blog? (plus error type in try-catch)
 
 Well, I'm heavily influenced by Doug Finke, Jeff Hicks, Mike F Robbins, Andrew Pla and many others, and those learned experts often mention that a personal blog is a great way to help you remember your own tips and tricks during your learning journey with anything that you learn. Just write a blog for yourself, so that is my inspiration.

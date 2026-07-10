@@ -1,3 +1,13 @@
+---
+layout: post
+title: "Secure AI Chat with PowerShell: No API Key in Plain Sight"
+date: 2025-11-13
+categories: [powershell, security, ai]
+tags: [securestring, api-keys, bstr, ai-chat]
+author: Paul Naughton
+description: "How to handle AI API keys more securely in PowerShell using SecureString and BSTR marshaling with explicit memory cleanup."
+---
+
 # Secure AI Chat with PowerShell: No API Key in Plain Sight 🔑
 
 I've just published a new PowerShell function, **`Send-AIChat.ps1`**, designed for easily interacting with AI APIs. 

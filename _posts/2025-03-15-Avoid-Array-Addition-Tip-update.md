@@ -1,3 +1,13 @@
+---
+layout: post
+title: "Avoid Array Addition: Tip Update"
+date: 2025-03-15
+categories: [powershell, performance]
+tags: [arrays, list, measure-command, powershell-7-5]
+author: Paul Naughton
+description: "An updated benchmark-driven look at array addition performance in PowerShell, including improvements introduced in PowerShell 7.5."
+---
+
 ## Avoid Array Addition - Tip updated
 _An update on [the original post]({% post_url 2025-02-21-Avoid-Array-Addition-Tip %})_
 

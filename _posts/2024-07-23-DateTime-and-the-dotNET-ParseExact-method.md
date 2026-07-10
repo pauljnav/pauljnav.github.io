@@ -1,3 +1,13 @@
+---
+layout: post
+title: "Processing DateTime Using the .NET ParseExact Method"
+date: 2024-07-23
+categories: [powershell, datetime]
+tags: [parseexact, datetime, locale, jira]
+author: Paul Naughton
+description: "How to use DateTime.ParseExact in PowerShell to parse date strings reliably across different locale settings."
+---
+
 # Processing DateTime using the .NET `ParseExact` Method
 
 As mentioned in the

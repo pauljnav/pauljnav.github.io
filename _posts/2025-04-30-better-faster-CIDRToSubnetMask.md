@@ -1,3 +1,13 @@
+---
+layout: post
+title: "A Better and Faster CIDR to Subnet Mask in PowerShell"
+date: 2025-04-30
+categories: [powershell, networking, performance]
+tags: [cidr, subnet-mask, tcpip, optimization, pester]
+author: Paul Naughton
+description: "A follow-up on CIDR-to-subnet-mask conversion comparing algorithmic and hard-coded approaches, with testing and performance considerations."
+---
+
 # A better and faster CIDR to subnet mask in PowerShell
 
 This long-overdue follow-up to the original post [Convert CIDR to Subnet Mask]({% post_url 2025-01-08-blog-Convert-CIDRToSubnetMask %}), comes with a familiar story.

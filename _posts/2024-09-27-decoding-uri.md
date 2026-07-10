@@ -1,3 +1,13 @@
+---
+layout: post
+title: "Decoding an Encoded URI with .NET Methods"
+date: 2024-09-27
+categories: [powershell, dotnet, uri]
+tags: [urldecode, htmldecode, webutility, httputility]
+author: Paul Naughton
+description: "Comparing .NET URI decoding methods in PowerShell and combining URL decode with HTML decode for encoded links."
+---
+
 # Decoding an encoded URI with .Net methods
 
 The other day while working with an SSRS server, I found that the 'Data feed' option was returning an encoded uri string that did not work when used in my browser.

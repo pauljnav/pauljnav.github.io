@@ -1,3 +1,13 @@
+---
+layout: post
+title: "Pin and Unpin Windows Quick Access with PowerShell"
+date: 2025-07-18
+categories: [powershell, windows, automation]
+tags: [quick-access, file-explorer]
+author: Paul Naughton
+description: "A practical PowerShell function for pinning and unpinning items in Windows Quick Access."
+---
+
 ## Quick and easy function Set-QuickAccessItem
 
 I'm changing my pc due to BSOD issues, and wanted a quick way to capture my Quick Access pins at Windows 11.

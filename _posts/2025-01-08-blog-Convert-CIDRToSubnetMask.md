@@ -1,3 +1,13 @@
+---
+layout: post
+title: "Convert CIDR to Subnet Mask in PowerShell"
+date: 2025-01-08
+categories: [powershell, networking]
+tags: [cidr, subnet-mask, tcpip]
+author: Paul Naughton
+description: "A PowerShell function that converts CIDR prefix length to dotted decimal subnet masks with a clear explanation of the underlying bit math."
+---
+
 # Convert CIDR to subnet mask in PowerShell
 
 ### Happy New Year to all
