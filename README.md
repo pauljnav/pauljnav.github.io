@@ -3,6 +3,6 @@
 
 I blog about PowerShell, code snippets and other useful code that helps me to automate stuff.
 
-My blogs will probably cover PowerShell, Jira, API, REST.
+My blogs will probably cover PowerShell, Pester, Jira interaction, REST API.
 
 ![Badge](https://hitscounter.dev/api/hit?url=https%3A%2F%2Fpauljnav.github.io%2F&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC)
