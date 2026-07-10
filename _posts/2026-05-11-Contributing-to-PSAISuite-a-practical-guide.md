@@ -4,7 +4,7 @@ title: "Contributing to PSAISuite: A Practical, Real‑World Guide"
 date: 2026-05-11
 categories: [opensource, psaisuite, powershell]
 tags: [git, github, pull-requests, contributions, workflow]
-author: Paul
+author: Paul Naughton
 description: "A clear, practical guide to contributing to the PSAISuite PowerShell module using Git, GitHub, branches, PRs, and best practices."
 ---
 
