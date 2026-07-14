@@ -8,14 +8,13 @@ author: Paul Naughton
 description: "Four helper functions to make global microphone privacy management on Windows faster and safer from the command line."
 ---
 
-# Managing Windows Microphone Privacy with PowerShell
-
 I've added four helper functions to make global microphone privacy management on Windows faster and safer from the command line:
 
-- [Get-MicrophoneAccess](#get-microphoneaccessps1)
-- [Set-MicrophoneAccess](#set-microphoneaccessps1)
-- [Enable-MicrophoneAccess](#enable-microphoneaccessps1)
-- [Disable-MicrophoneAccess](#disable-microphoneaccessps1)
+- [The function goodies](#the-function-goodies)
+    - [Get-MicrophoneAccess.ps1](#get-microphoneaccessps1)
+    - [Set-MicrophoneAccess.ps1](#set-microphoneaccessps1)
+    - [Enable-MicrophoneAccess.ps1](#enable-microphoneaccessps1)
+    - [Disable-MicrophoneAccess.ps1](#disable-microphoneaccessps1)
 
 ## Why these functions?
 
