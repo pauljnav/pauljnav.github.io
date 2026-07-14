@@ -23,6 +23,15 @@ And, I received great community feedback from none other than [Jeff Hicks](https
 
 Many thanks to such super contributors!
 
+## What Changed from Community Feedback
+
+1. Made Set-MicrophoneAccess quiet by default, with optional output via -PassThru.
+2. Added a fast Windows-only guard at function start for clearer cross-platform behaviour.
+3. Simplified execution: validate first, then call the native SystemSettingsAdminFlows.exe.
+4. Added a short 400 ms delay before re-reading state with Get-MicrophoneAccess.
+5. Added -Force support while honoring explicit -Confirm usage.
+6. Added Enable-MicrophoneAccess and Disable-MicrophoneAccess wrappers for natural verb-based usage.
+
 ## 1) Get-MicrophoneAccess.ps1
 
 This function retrieves the Windows microphone consent setting from the registry, and returns a simple object with:
@@ -81,7 +90,7 @@ A simple pattern is:
 2. Apply the change
 3. Re-check state
 
-That gives immediate verification and keeps behavior predictable in scripts.
+That gives immediate verification and keeps behaviour predictable in scripts.
 
 Together they provide a clean get/enable/disable collection for managing one specific privacy control in a script-friendly way.
 
