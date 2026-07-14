@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Managing Windows Microphone Privacy with PowerShell"
+title: "Managing Windows Microphone Privacy with PowerShell - Part 1"
 date: 2026-07-10
 categories: [microphone, privacy, powershell]
 tags: [microphone, privacy]
