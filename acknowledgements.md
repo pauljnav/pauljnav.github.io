@@ -5,7 +5,7 @@ title: Acknowledgements
 
 ### Inspirations
 
-- Luc Dekens, VMWare PowerCLI automation [PowerShell Explained](https://www.lucd.info/)
+- Luc Dekens, VMWare PowerCLI automation [lucd.info](https://www.lucd.info/)
 - Kevin Marquette, Educator [PowerShell Explained](https://powershellexplained.com/)
 - Doug Finke, Educator and Toolmaker [github.com/dfinke](https://github.com/dfinke)
 - Jeff Hicks, Educator and Toolmaker, [jdhitsolutions.com](https://jdhitsolutions.com) [The Lonely Administrator](https://jdhitsolutions.com/blog/tag/powershell/)
