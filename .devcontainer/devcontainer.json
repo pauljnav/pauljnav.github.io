@@ -2,5 +2,8 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/jekyll
 {
     "name": "Jekyll",
-    "image": "mcr.microsoft.com/devcontainers/jekyll:2-bullseye"
+    "image": "mcr.microsoft.com/devcontainers/jekyll:2-bullseye",
+    "onCreateCommand": "if [ ! -f Gemfile ]; then printf 'source \"https://rubygems.org\"\ngem \"github-pages\", group: :jekyll_plugins\n' > Gemfile; fi",
+    "updateContentCommand": "echo \"alias jekyllserve='bundle exec jekyll serve --host 0.0.0.0 --livereload'\" >> ~/.bashrc",
+    "postCreateCommand": "bundle install"
 }
