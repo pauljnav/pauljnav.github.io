@@ -37,9 +37,8 @@ titles_from_headings:
 
 header_pages:
   - archive.md
-  - bookmarks.md
   - acknowledgements.md
-  - _references\references.md
+  - links.md
 
 defaults:
   - scope:
