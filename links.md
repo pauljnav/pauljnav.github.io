@@ -13,15 +13,17 @@ permalink: /links/
 
 ### PowerShell and Blogs
 
-- [Paul Naughton's Blog](https://pauljnav.github.io/) - **This. My personal blog**
+- [$this](https://pauljnav.github.io/) - **Paul Naughton's blog**
 - [PowerShell.org](https://powershell.org) - PowerShell Community
 - [VS Code Insiders Podcast](https://www.vscodepodcast.com/) - The latest in VS Code, the open source AI code editor
 - [Adam Bertram](https://adamtheautomator.com/) - The original Adam the Automator
 - [Barbara Forbes](https://4bes.nl/) - Azure resources with [Bicep](https://aka.ms/bicep)
 - [Chris Gardner](https://chrislgardner.dev/) - Get-RandomProblems
+- [Chrissy LeMaire](https://blog.netnerds.net) - Creator of [dbatools](https://dbatools.io/) dbachecks
 - [Emanuel Palm](https://pipe.how/) - PowerShell, .NET, Azure, and other tidbits of fun
 - [Harm Veenstra](https://powershellisfun.com/) - PowerShell is fun
 - [Jeffrey Snover](https://www.jsnover.com/blog/) - Inquiring mind opines…
+- [Jess Pomfret](https://jesspomfret.com/) - Database Engineer with a Passion for Automation, [DBATools](https://dbatools.io/)
 - [Jordan Borean](https://www.bloggingforlogging.com/) - a developer who tries to wade through all things DevOps
 - [Joseph Streeter](https://josephstreeter.github.io/index.html) - Crusader Two-One; [Terraform](https://josephstreeter.github.io/docs/infrastructure/terraform/proxmox.html)
 - [Matthew Dowst](https://psweekly.dowst.dev/) - PowerShell Weekly – Your weekly round up of all things PowerShell
