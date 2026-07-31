@@ -17,6 +17,7 @@ permalink: /links/
 - [PowerShell.org](https://powershell.org) - PowerShell Community
 - [VS Code Insiders Podcast](https://www.vscodepodcast.com/) - The latest in VS Code, the open source AI code editor
 - [Adam Bertram](https://adamtheautomator.com/) - The original Adam the Automator
+- [Andrew Pla](https://andrewpla.tech/writing/) - Thoughts, lessons, and practical write-ups on PowerShell, automation
 - [Barbara Forbes](https://4bes.nl/) - Azure resources with [Bicep](https://aka.ms/bicep)
 - [Bartek Bielawski](https://becomelotr.wordpress.com/) - Bartek's WordPress blog
 - [Chris Gardner](https://chrislgardner.dev/) - Get-RandomProblems
