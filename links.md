@@ -18,6 +18,7 @@ permalink: /links/
 - [VS Code Insiders Podcast](https://www.vscodepodcast.com/) - The latest in VS Code, the open source AI code editor
 - [Adam Bertram](https://adamtheautomator.com/) - The original Adam the Automator
 - [Barbara Forbes](https://4bes.nl/) - Azure resources with [Bicep](https://aka.ms/bicep)
+- [Bartek Bielawski](https://becomelotr.wordpress.com/) - Bartek's WordPress blog
 - [Chris Gardner](https://chrislgardner.dev/) - Get-RandomProblems
 - [Chrissy LeMaire](https://blog.netnerds.net) - Creator of [dbatools](https://dbatools.io/) dbachecks
 - [Emanuel Palm](https://pipe.how/) - PowerShell, .NET, Azure, and other tidbits of fun
