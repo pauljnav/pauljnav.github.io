@@ -24,6 +24,7 @@ permalink: /links/
 - [Chrissy LeMaire](https://blog.netnerds.net) - Creator of [dbatools](https://dbatools.io/) dbachecks
 - [Emanuel Palm](https://pipe.how/) - PowerShell, .NET, Azure, and other tidbits of fun
 - [Harm Veenstra](https://powershellisfun.com/) - PowerShell is fun
+- [Jake Hildreth](https://jakehildreth.com) - Husband, Dad, Recovering Sysadmin 
 - [Jeffrey Snover](https://www.jsnover.com/blog/) - Inquiring mind opines…
 - [Jess Pomfret](https://jesspomfret.com/) - Database Engineer with a Passion for Automation, [DBATools](https://dbatools.io/)
 - [Jordan Borean](https://www.bloggingforlogging.com/) - a developer who tries to wade through all things DevOps
