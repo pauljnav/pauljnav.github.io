@@ -15,6 +15,7 @@ permalink: /links/
 
 - [$this](https://pauljnav.github.io/) - **Paul Naughton's blog**
 - [PowerShell.org](https://powershell.org) - PowerShell Community
+- [The PowerShell Podcast](https://powershell.org/podcast/) - Building your career with PowerShell
 - [VS Code Insiders Podcast](https://www.vscodepodcast.com/) - The latest in VS Code, the open source AI code editor
 - [Adam Bertram](https://adamtheautomator.com/) - The original Adam the Automator
 - [Andrew Pla](https://andrewpla.tech/writing/) - Thoughts, lessons, and practical write-ups on PowerShell, automation
@@ -33,7 +34,6 @@ permalink: /links/
 - [Matthew Dowst](https://psweekly.dowst.dev/) - PowerShell Weekly – Your weekly round up of all things PowerShell
 - [Mike F Robbins](https://mikefrobbins.com/tags/powershell/) - Mike's articles categorized by PowerShell
 - [PowerShell Team](https://devblogs.microsoft.com/powershell/) - Automating the world one-liner at a time…
-- [PowerShell.org](https://powershell.org) - PowerShell Community
 - [r/PowerShell](https://www.reddit.com/r/PowerShell/) - Reddit PowerShell
 - [Warren Frame](https://ramblingcookiemonster.github.io/about/) - Rambling Cookie Monster; [PSDepend](https://github.com/PowerShellOrg/PSDepend), [PSSQLite](https://github.com/PowerShellOrg/PSSQLite).
 
