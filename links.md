@@ -35,6 +35,7 @@ permalink: /links/
 - [Mike F Robbins](https://mikefrobbins.com/tags/powershell/) - Mike's articles categorized by PowerShell
 - [PowerShell Team](https://devblogs.microsoft.com/powershell/) - Automating the world one-liner at a time…
 - [r/PowerShell](https://www.reddit.com/r/PowerShell/) - Reddit PowerShell
+- [Ryan Yates](https://blog.kilasuit.org/) - Prodder of things
 - [SSRS Team](https://learn.microsoft.com/en-ie/archive/blogs/sqlrsteamblog/) - SQL Server Reporting Services Team Blog
 - [Warren Frame](https://ramblingcookiemonster.github.io/about/) - Rambling Cookie Monster; [PSDepend](https://github.com/PowerShellOrg/PSDepend), [PSSQLite](https://github.com/PowerShellOrg/PSSQLite).
 
@@ -54,6 +55,7 @@ permalink: /links/
 
 - [Chad Baldwin](https://chadbaldwin.net/2021/03/14/how-to-build-a-sql-blog.html) - How to build a SQL blog
 - [Academic Pages](https://github.com/academicpages/academicpages.github.io/blob/master/README.md) - GitHub Pages template README
+- [PSAISuite](https://github.com/dfinke/PSAISuite) - PSAISuite from Doug Finke - Doug also gave us [ImportExcel](https://www.powershellgallery.com/packages/ImportExcel)
 
 ### Other Links of interest
 
@@ -62,6 +64,9 @@ permalink: /links/
 ### PowerShell - Enumerations
 
 - [DayOfWeek](https://docs.microsoft.com/en-us/dotnet/api/system.dayofweek) - `[System.Enum]::GetValues([System.DayOfWeek])`
+- [MonthNames](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.datetimeformatinfo.monthnames) - `[System.Globalization.DateTimeFormatInfo]::CurrentInfo.MonthNames`
+- [AbbreviatedMonthNames](https://learn.microsoft.com/en-us/dotnet/api/system.globalization.datetimeformatinfo.abbreviatedmonthnames) - `[System.Globalization.DateTimeFormatInfo]::CurrentInfo.AbbreviatedMonthNames`
 - [DateTimeKind](https://docs.microsoft.com/en-us/dotnet/api/system.datetimekind) - `[System.Enum]::GetValues([System.DateTimeKind])`
+
 - [ExecutionPolicy](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies) - `[System.Enum]::GetValues([Microsoft.PowerShell.ExecutionPolicy])`
 - [DEP](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility) - `[System.Enum]::GetValues([Microsoft.PowerShell.Commands.DataExecutionPreventionSupportPolicy])`
