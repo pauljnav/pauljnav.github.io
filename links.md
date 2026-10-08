@@ -21,6 +21,7 @@ permalink: /links/
 - [Andrew Pla](https://andrewpla.tech/writing/) - Thoughts, lessons, and practical write-ups on PowerShell, automation
 - [Barbara Forbes](https://4bes.nl/) - Azure resources with [Bicep](https://aka.ms/bicep)
 - [Bartek Bielawski](https://becomelotr.wordpress.com/) - Bartek's WordPress blog
+- [Ben Reader](https://powers-hell.com/about/) - Ben | Powers Hell
 - [Chris Gardner](https://chrislgardner.dev/) - Get-RandomProblems
 - [Chrissy LeMaire](https://blog.netnerds.net) - Creator of [dbatools](https://dbatools.io/) dbachecks
 - [Emanuel Palm](https://pipe.how/) - PowerShell, .NET, Azure, and other tidbits of fun
