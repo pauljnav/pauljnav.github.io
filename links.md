@@ -37,6 +37,7 @@ permalink: /links/
 - [Mike F Robbins](https://mikefrobbins.com/tags/powershell/) - Mike's articles categorized by PowerShell
 - [PowerShell Team](https://devblogs.microsoft.com/powershell/) - Automating the world one-liner at a time…
 - [r/PowerShell](https://www.reddit.com/r/PowerShell/) - Reddit PowerShell
+- [Rob Sewell](https://blog.robsewell.com/) - Field notes from a SQL DBA with a beard
 - [Ryan Yates](https://blog.kilasuit.org/) - Prodder of things
 - [SSRS Team](https://learn.microsoft.com/en-ie/archive/blogs/sqlrsteamblog/) - SQL Server Reporting Services Team Blog
 - [Warren Frame](https://ramblingcookiemonster.github.io/about/) - Rambling Cookie Monster; [PSDepend](https://github.com/PowerShellOrg/PSDepend), [PSSQLite](https://github.com/PowerShellOrg/PSSQLite).
