@@ -41,7 +41,7 @@ permalink: /links/
 - [Ryan Yates](https://blog.kilasuit.org/) - Prodder of things
 - [Sean Wheeler](https://seanonit.org/) - Sean on IT
 - [SSRS Team](https://learn.microsoft.com/en-ie/archive/blogs/sqlrsteamblog/) - SQL Server Reporting Services Team Blog
-- [Warren Frame](https://ramblingcookiemonster.github.io/about/) - Rambling Cookie Monster; [PSDepend](https://github.com/PowerShellOrg/PSDepend), [PSSQLite](https://github.com/PowerShellOrg/PSSQLite).
+- [Warren Frame](https://ramblingcookiemonster.github.io/about/) - Rambling Cookie Monster; [PSDepend](https://github.com/PowerShellOrg/PSDepend), [PSSQLite](https://github.com/PowerShellOrg/PSSQLite)
 
 ### Discords and such
 - [PDQ Discord - powershell-scripting](https://discordapp.com/channels/694656089517457419/1096088368430985298)
