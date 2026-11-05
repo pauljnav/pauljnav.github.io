@@ -39,6 +39,7 @@ permalink: /links/
 - [r/PowerShell](https://www.reddit.com/r/PowerShell/) - Reddit PowerShell
 - [Rob Sewell](https://blog.robsewell.com/) - Field notes from a SQL DBA with a beard
 - [Ryan Yates](https://blog.kilasuit.org/) - Prodder of things
+- [Sean Wheeler](https://seanonit.org/) - Sean on IT
 - [SSRS Team](https://learn.microsoft.com/en-ie/archive/blogs/sqlrsteamblog/) - SQL Server Reporting Services Team Blog
 - [Warren Frame](https://ramblingcookiemonster.github.io/about/) - Rambling Cookie Monster; [PSDepend](https://github.com/PowerShellOrg/PSDepend), [PSSQLite](https://github.com/PowerShellOrg/PSSQLite).
 
