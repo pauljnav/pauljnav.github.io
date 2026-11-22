@@ -75,3 +75,8 @@ permalink: /links/
 
 - [ExecutionPolicy](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies) - `[System.Enum]::GetValues([Microsoft.PowerShell.ExecutionPolicy])`
 - [DEP](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility) - `[System.Enum]::GetValues([Microsoft.PowerShell.Commands.DataExecutionPreventionSupportPolicy])`
+
+### Training
+
+- [Product: Power-BI](https://learn.microsoft.com/en-us/training/browse/?products=power-bi&resource_type=learning%20path) - [Prepare data for analysis with Power BI](https://learn.microsoft.com/en-us/training/paths/prepare-data-power-bi/)
+- [Role: Data-Analyst](https://learn.microsoft.com/en-us/training/browse/?roles=data-analyst&resource_type=learning%20path)
