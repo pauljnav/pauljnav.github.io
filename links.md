@@ -84,3 +84,5 @@ permalink: /links/
   - [Microsoft Data Days Certification](https://aka.ms/dd/cert)
   - [Certified: Fabric Analytics Engineer Associate](https://learn.microsoft.com/en-us/credentials/certifications/fabric-analytics-engineer-associate)
   - [Prepare data for analysis with Power BI](https://learn.microsoft.com/en-us/training/paths/prepare-data-power-bi/)
+  - [Design semantic models for scale in Microsoft Fabric](https://learn.microsoft.com/en-us/training/modules/design-semantic-models-scale/)
+
