@@ -78,6 +78,9 @@ permalink: /links/
 
 ### Training
 
-- [Product: Power-BI](https://learn.microsoft.com/en-us/training/browse/?products=power-bi&resource_type=learning%20path) - [Prepare data for analysis with Power BI](https://learn.microsoft.com/en-us/training/paths/prepare-data-power-bi/)
+- [Product: Power-BI](https://learn.microsoft.com/en-us/training/browse/?products=power-bi&resource_type=learning%20path)
 - [Role: Data-Analyst](https://learn.microsoft.com/en-us/training/browse/?roles=data-analyst&resource_type=learning%20path)
-- BI cycle. Source > store > model > analyze > visualise > decision(s) — a 6-stage journey.
+  - BI cycle. Source > store > model > analyze > visualise > decision(s) — a 6-stage journey.
+  - [Microsoft Data Days Certification](https://aka.ms/dd/cert)
+  - [Certified: Fabric Analytics Engineer Associate](https://learn.microsoft.com/en-us/credentials/certifications/fabric-analytics-engineer-associate)
+  - [Prepare data for analysis with Power BI](https://learn.microsoft.com/en-us/training/paths/prepare-data-power-bi/)
